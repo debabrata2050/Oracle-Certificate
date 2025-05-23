@@ -22,3 +22,36 @@
 - [ ] Monitoring
 - [ ] Availability
 - [x] Scalability ✅
+
+#### Q. Which MySQL Enterprise Edition component or plug-in replaces real values with substitutes?
+- [ ] MySQL Enterprise Audit
+- [x] MySQL Enterprise Masking ✅
+- [ ] MySQL Enterprise Authentication
+- [ ] MySQL Transparent Data Encryption
+
+#### Q. Which MySQL Enterprise Security tool allows DBAs to track user activities such as Who, What, When, How, Status, From Where, DB version, OS version, and options?
+- [ ] MySQL Enterprise Transparent Data Encryption (TDE)
+- [x] MySQL Enterprise Audit ✅
+- [ ] MySQL Enterprise Firewall
+- [ ] MySQL Enterprise Monitor
+
+#### Q. Which three languages are supported by MySQL Shell?
+- [x] JavaScript ✅
+- [x] Python ✅
+- [ ] Perl
+- [ ] Java
+- [ ] PHP
+- [x] SQL ✅
+
+#### Q. Which three operating systems are supported by MySQL?
+- [x] macOS ✅
+- [x] Windows ✅
+- [ ] Android
+- [ ] iOS
+- [x] Linux ✅
+
+#### Q. Where would you look to find easy-to-understand views that contain information about IO hot spots, locking, and costly SQL statements?
+- [x] sys schema ✅
+- [ ] Performance schema
+- [ ] mysql schema
+- [ ] Information schema

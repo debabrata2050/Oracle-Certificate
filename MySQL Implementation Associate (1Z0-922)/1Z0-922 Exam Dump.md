@@ -19,6 +19,37 @@
 - [x] SET PASSWORD ✅
 - [ ] CREATE PASSWORD
 
+#### Q. What type of backups do mysqldump and MySQL Shell take?
+- [ ] Operating System
+- [ ] Snapshot
+- [x] Logical ✅
+- [ ] Physical
+
+#### Q. Your customer has a 75 GB MySOL database. They are using mysqldump to take a backup of their database, which is taking the five hours to complete.
+#### What can your customer do to decrease the amount of time it takes to back up their database?
+- [ ] Back up the database by using mysqldump to send the backup to another server
+- [ ] Back up the database to a local drive
+- [ ] Use MySQL Enterprise Monitor
+- [x] Use MySQL Enterprise Backup ✅
+
+#### Q. Which log file is used to perform a Point in time Recovery?
+- [ ] Undo log
+- [x] Binary log ✅
+- [ ] Audit log
+- [ ] Redo log
+
+#### Q. Which data type would you use for a column to store large chunks of binary data such as images and audio files?
+- [x] BLOB ✅
+- [ ] VARCHAR
+- [ ] BIT
+- [ ] JSON
+
+#### Q. When creating a table, which data type would you use for a column that contains only whole numbers (a number that is not a fraction)?
+- [x] INT ✅
+- [ ] DECIMAL(5, 2)
+- [ ] FLOAT
+- [ ] BIGNUM
+
 #### Q. By using MySQL replication, data can be replicated from source to replica.
 #### What are two advantages of MySQL replication?
 - [ ] In-memory cache
@@ -26,37 +57,6 @@
 - [x] Scale out ✅
 - [x] Analytics ✅
 - [ ] Data compression
-
-#### Q. What type of backups do mysqldump and MySQL Shell take?
-Operating System
-Snapshot
-x Logical
-Physical
-
-#### Q. Your customer has a 75 GB MySOL database. They are using mysqldump to take a backup of their database, which is taking the five hours to complete.
-What can your customer do to decrease the amount of time it takes to back up their database?
-Back up the database by using mysqldump to send the backup to another server
-Back up the database to a local drive
-Use MySQL Enterprise Monitor
-x Use MySQL Enterprise Backup
-
-#### Q. Which log file is used to perform a Point in time Recovery?
-Undo log
-x Binary log
-Audit log
-Redo log
-
-#### Q. Which data type would you use for a column to store large chunks of binary data such as images and audio files?
-x BLOB
-VARCHAR
-BIT
-JSON
-
-#### Q. When creating a table, which data type would you use for a column that contains only whole numbers (a number that is not a fraction)?
-x INT
-DECIMAL(5, 2)
-FLOAT
-BIGNUM
 
 #### Q. The replica connects to the source and asks for updated records.
 #### What command was issued for this to happen?

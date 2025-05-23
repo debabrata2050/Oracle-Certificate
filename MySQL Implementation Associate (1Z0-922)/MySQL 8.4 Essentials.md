@@ -226,3 +226,45 @@
 - [x] Create Physical backup of MySQL systems ✅
 
 ***
+
+## MySQL Replication
+
+#### 1. What is one requirement on the source to enable source-replica replication?
+- [x] Source must have binary logging enabled. ✅
+- [ ] Source must have its binary log format set to statement based.
+- [ ] Source must have all tables use InnoDB storage engine only.
+- [ ] Source must have the sql_require_primary_key variable set to on.
+
+> The binary log contains "events" that describe database changes such as table creation operations or changes to table data. Binary logging must be enabled on a replication source so the record of data changes can be sent to the replicas.
+
+#### 2. Which thread maintains an open connection to the source when the replica connects and is used to send the binary log contents from the source to a replica?
+- [ ] SQL thread
+- [x] I/0 binlog dump thread ✅
+- [ ] Connection thread
+- [ ] I/0 thread
+
+> The source creates an I/O binlog dump thread to send the binary log contents to a replica when the replica connects. This thread can be identified in the output of SHOW PROCESSLIST on the source as the binlog dump thread.
+
+#### 3. What uses the Relay Log?
+- [x] Replica ✅
+- [ ] Source
+- [ ] Both Source and Replica
+- [ ] Neither
+
+> The relay log is written by the I/O thread and contains the transactions read from the replication source server's binary log. The relay log is stored on the replica and used by the replica. The transactions in the relay log are applied on the replica by the SQL thread.
+
+#### 4. Which thread reads the relay log and executes the transactions that it contains on the replica?
+- [ ] I/0 thread
+- [ ] Connection thread
+- [ ] I/0 binlog dump thread
+- [x] SQL thread ✅
+
+> The replica creates a SQL thread to read the relay log that is written by the replication I/O thread and execute the transactions contained in it.
+
+#### 5. Which thread is responsible for taking a copy of the binary log events from the source and writing those to a relay log?
+- [ ] SQL thread
+- [ ] Connection thread
+- [x] I/0 thread ✅
+- [ ] I/0 binlog dump thread
+
+***

@@ -1,4 +1,4 @@
-# Exam 1Z0-922: MySQL Implementation Associate
+# Exam 1Z0-922: MySQL Implementation Associate Dump
 
 #### Q. Which statement would you use to add a role in MySQL?
 - [ ] SET ROLE

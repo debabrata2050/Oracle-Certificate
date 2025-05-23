@@ -130,11 +130,15 @@
 - [ ] They are assigned in the mysqld-auto.cnf configuration file.
 - [ ] They are assigned in the my.cnf configuration file.
 
+> Dynamic privileges are granted by the server at run time, either during the startup process or by plugins and components as they are loaded. They may also be granted explicitly with GRANT statements. They are not specified in configuration files.
+
 #### 2. Which MySQL Enterprise feature supports Kerberos, PAM, and FIDO?
 - [x] Authentication ✅
 - [ ] Auditing
 - [ ] Manager
 - [ ] Firewall
+
+> MySQL Enterprise Authentication brings together a set of plugins that support authentication with external infrastructure based on LDAP, Kerberos, or using the Pluggable Authentication Module (PAM) framework in Linux.
 
 #### 3. What is the default MySQL authentication plugin used to encrypt passwords?
 - [ ] caching_sha256_password
@@ -142,11 +146,15 @@
 - [ ] mysql_native_password
 - [x] caching_sha2_password ✅
 
+> MySQL encrypts passwords before storing them in the database. The caching_sha2_password plugin uses a secure one-way encryption algorithm to create passwords that cannot easily be decrypted, even if the database is compromised.
+
 #### 4. Which product can mitigate the risk of SQL Injection attacks?
 - [ ] MySQL Shell
 - [ ] MySQL Enterprise Audit
 - [x] MySQL Enterprise Firewall ✅
 - [ ] Oracle Enterprise Manager
+
+> MySQL Enterprise Firewall enables you to create an allow list of statements, and it blocks statements that do not match that allow list. SQL injection attacks attempt to insert SQL statements within user interfaces, and if those statements are not in the allow list then they are prevented from executing.
 
 #### 5. Which type of compliance do GDPR, HIPAA, FERPA, and GLBA impose that MySQL can implement?
 - [ ] Performance

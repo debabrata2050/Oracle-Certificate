@@ -48,11 +48,15 @@
 - [ ] It contains the my.cnf and temporary files.
 - [ ] It is configured automatically when you install MySQL from binary archive.
 
+> The data directory setting datadir specifies the default location of system and user databases, and is one of the settings for file locations. Other settings include locations for temporary files and configuration files.
+
 #### 2. How often are MySQL Innovation versions released?
 - [x] Every quarter ✅
 - [ ] Every two years
 - [ ] Every year
 - [ ] Every month
+
+> MySQL long-term support versions are released every two years. Innovation versions are released quarterly.
 
 #### 3. Which installation method requires that you manually configure the service user?
 - [ ] yum packages
@@ -60,17 +64,23 @@
 - [ ] RPM packages
 - [x] binary archive ✅
 
+> The yum and RPM package installers install and configure MySQL on Linux. The MySQL Installer installs and configures MySQL on Windows. The binary archive only contains the necessary files but does not perform any configuration.
+
 #### 4. Which permissions are required for the MySQL service user?
 - [ ] Shell privileges
 - [ ] System privileges
 - [ ] Root privileges
 - [x] Data directory privileges ✅
 
+> The MySQL service user needs only privileges to run the process and access the network and relevant directories in the file system. You should not grant permissions beyond that, so that the service cannot be exploited by malicious users.
+
 #### 5. Which statement is true about upgrades?
 - [ ] You must reinstall MySQL completely and restore from backup when upgrading from Community Edition to Enterprise Edition.
 - [ ] The Upgrade Checker utility is only available in Enterprise Edition.
 - [x] You can upgrade MySQL while the server is offline by replacing the binaries with new versions. ✅
 - [ ] You can upgrade MySQL while the server is running.
+
+> Upgrading is an offline operation, performed in-place by replacing existing binaries with the new version. This process also works when upgrading to Enterprise Edition. The Upgrade Checker utility is available in MySQL Shell, and can be used on any MySQL version and edition up to and including the version of MySQL Shell.
 
 ***
 
@@ -100,11 +110,15 @@
 - [ ] DECIMAL
 - [ ] BIT
 
+> The ENUM (short for enumeration) stores multiple indexed string values.
+
 #### 5. Which statement is true about PRIMARY indexes?
 - [ ] You can have multiple rows with the same value in the PRIMARY index.
 - [x] PRIMARY index values are replicated to every secondary index. ✅
 - [ ] They speed up insert operations.
 - [ ] You can have multiple PRIMARY indexes on a table.
+
+> The PRIMARY index manages the primary key of a table. Its values must be unique and are used as a lookup value for all secondary indexes.
 
 ***
 

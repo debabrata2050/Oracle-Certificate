@@ -268,3 +268,44 @@
 - [ ] I/0 binlog dump thread
 
 ***
+
+## Enabling High Availability in MySQL
+
+#### 1. Which two are NOT used when setting up MySQL InnoDB ReplicaSet?
+- [x] MySQL Workbench ✅
+- [ ] MySQL Router
+- [x] MySQL Group Replication ✅
+- [ ] MySQL Read Replica
+- [ ] MySQL Shell
+
+> When setting up a MySQL InnoDB ReplicaSet, MySQL Router and MySQL Shell are used. MySQL Shell provides the AdminAPI which allows you to easily deploy, configure, and administer the ReplicaSet, whereas MySQL Router provides transparent routing between your application and InnoDB ReplicaSet. MySQL Workbench and Group Replication are not used.
+
+#### 2. Which MySQL component provides automatic failover when using InnoDB Cluster?
+- [ ] MySQL Shell
+- [x] MySQL Group Replication ✅
+- [ ] MySQL Router
+- [ ] MySQL Workbench
+
+#### 3. Which MySQL component redirects application queries to available nodes in an InnoDB Cluster?
+- [ ] MySQL Group Replication
+- [x] MySQL Router ✅
+- [ ] MySQL Shell
+- [ ] MySQL Workbench
+
+#### 4. What is the Recovery Point Objective (RPO) or data loss tolerance within a region when using MySQL InnoDB Cluster?
+- [ ] Seconds to minutes
+- [ ] Minutes to hours
+- [x] Zero ✅
+- [ ] Minutes
+
+> MySQL InnoDB Cluster is made up of three MySQL instances: a primary instance, and two secondary instances. All data that you write to the primary instance is copied to the secondary instances using Group Replication. InnoDB Cluster guarantees if one instance fails, another takes over, with zero data loss and minimal downtime.
+
+#### 5. Which MySQL component automates InnoDB Cluster creation and makes managing the Cluster easy?
+- [ ] MySQL Workbench
+- [x] MySQL Shell ✅
+- [ ] MySQL Group Replication
+- [ ] MySQL Router
+
+> MySQL Shell uses AdminAPI which allows you to easily deploy, configure, and administer InnoDB Cluster, InnoDB ClusterSet, and InnoDB ReplicaSet.
+
+***

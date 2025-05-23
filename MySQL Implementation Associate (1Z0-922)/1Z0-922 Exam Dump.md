@@ -135,12 +135,24 @@
 - [ ] MyISAM
 - [ ] Archive
 
+#### Q. What type of join returns all records from the left table and the matched records from the right table?
+- [ ] Cross Join
+- [x] Left Join ✅
+- [ ] Right Join
+- [ ] Inner Join
+
 #### Q. Which backup method allows you to back up only the data that has changed since the last FULL backup?
 - [ ] Full
 - [ ] Incremental
 - [ ] Optimistic
 - [x] Differential ✅
 - [ ] Partial
+
+#### Q. Which replication topology does NOT implement any conflict detection or resolution?
+- [ ] Replication conflicts are not possible in MySQL
+- [ ] MySQL Chain
+- [ ] Source-Replica
+- [x] Source-Source ✅
 
 #### Q. Which three components are part of the core MySQL database architecture?
 - [x] Optimizer ✅
@@ -149,6 +161,13 @@
 - [ ] mysqldump
 - [x] Storage Engine ✅
 - [ ] MySQL Router
+
+#### Q. You just installed MySQL using a package manager on Linux.
+#### Where is the default data directory (that is, datadir) located that holds InnoDB log files such as undo and redo logs?
+- [ ] /usr/lib/mysql
+- [ ] /us/local/mysql
+- [x] /var/lib/mysql ✅
+- [ ] /opt/mysql
 
 #### Q. How would you replicate between two InnoDB Clusters?
 - [ ] Set up MySQL Replication.

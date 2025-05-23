@@ -107,3 +107,82 @@
 - [ ] You can have multiple PRIMARY indexes on a table.
 
 ***
+
+## Database Security
+
+#### 1. Which statement about dynamic privileges is true?
+- [x] They are assigned by the server, a plugin, or a component at load time. ✅
+- [ ] They are assigned implicitly when a transaction requires them.
+- [ ] They are assigned in the mysqld-auto.cnf configuration file.
+- [ ] They are assigned in the my.cnf configuration file.
+
+#### 2. Which MySQL Enterprise feature supports Kerberos, PAM, and FIDO?
+- [x] Authentication ✅
+- [ ] Auditing
+- [ ] Manager
+- [ ] Firewall
+
+#### 3. What is the default MySQL authentication plugin used to encrypt passwords?
+- [ ] caching_sha256_password
+- [ ] plaintext
+- [ ] mysql_native_password
+- [x] caching_sha2_password ✅
+
+#### 4. Which product can mitigate the risk of SQL Injection attacks?
+- [ ] MySQL Shell
+- [ ] MySQL Enterprise Audit
+- [x] MySQL Enterprise Firewall ✅
+- [ ] Oracle Enterprise Manager
+
+#### 5. Which type of compliance do GDPR, HIPAA, FERPA, and GLBA impose that MySQL can implement?
+- [ ] Performance
+- [x] Regulatory ✅
+- [ ] Administrative
+- [ ] Financial
+
+***
+
+## MySQL Enterprise Security Tools
+
+#### 1. What file can you encrypt using MySQL Enterprise Transparent Data Encryption (TDE)?
+- [x] Tablespace File ✅
+- [ ] SSL Key File
+- [ ] Configuration File (my.cnf or my.ini)
+- [ ] General Query, Slow Query, and Error Log File
+
+> MySQL stores table data in a tablespace file. Using MySQL Enterprise Transparent Data Encryption (TDE), you can encrypt these files to protect the privacy of your information, prevent data breaches and help meet regulatory requirements. TDE can also encrypt log files such as binary, relay, undo, and redo logs, but it cannot encrypt general query, slow query, and error log file.
+
+#### 2. Against what does MySQL Enterprise Firewall provide real-time protection?
+- [ ] Virus
+- [ ] Denial of Service (DoS) Attack
+- [x] SQL Injection ✅
+- [ ] Brute Force Attack
+
+#### 3. Which two formatting options are supported by MySQL Enterprise Audit?
+- [x] XML ✅
+- [ ] SQL
+- [ ] Text
+- [ ] YAML
+- [x] JSON ✅
+
+> The supported audit log file formats are XML and JSON. The default is XML. However, this can be changed at server startup by setting the audit_log_format variable.
+
+#### 4. When using MySQL Enterprise Transparent Data Encryption (TDE), which key must be stored outside the database?
+- [ ] Primary
+- [ ] Public
+- [x] Master ✅
+- [ ] Private
+- [ ] Tablespace
+
+> InnoDB uses a two-tier encryption key architecture, consisting of a master key and tablespace keys. When a tablespace is encrypted, a tablespace key is encrypted and stored in the tablespace header. InnoDB uses a master encryption key to decrypt the tablespace key when accessing encrypted data. It is the master key that must be stored outside the database (in a key vault) and should be rotated periodically or whenever you suspect that the key has been compromised and this key.
+
+#### 5. In which two ways can you install the MySQL Enterprise Masking and De-Identification feature?
+- [ ] Configuration File
+- [x] Plugin ✅
+- [ ] Tablespace
+- [x] Component ✅
+- [ ] Stored Procedure
+
+> MySQL Enterprise Masking and De-Identification feature can be implemented through either a plugin or a component. Plugins are a *set of loadable functions* that provide a SQL-level API for performing operations such as masking and de-identification. Components are *self-contained code containers* that interact with other code exclusively by implementing and consuming services via the registry. However, enabling both at the same time is unsupported and results may not be as anticipated.
+
+***

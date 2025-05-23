@@ -309,3 +309,47 @@
 > MySQL Shell uses AdminAPI which allows you to easily deploy, configure, and administer InnoDB Cluster, InnoDB ClusterSet, and InnoDB ReplicaSet.
 
 ***
+
+## Monitoring MySQL
+
+#### 1. What does the MySQL Performance Schema do?
+- [ ] It creates indexes for the SQL code.
+- [ ] It compresses the database for better underlying hardware management.
+- [ ] It scales the MySQL database for better performance.
+- [x] It provides statistics about your MySQL instance. ✅
+
+> One important monitoring feature in MySQL is the Performance Schema. It’s a system database that provides statistics of how MySQL executes at a low level. The performance information belongs only to the specific instance, so it isn’t replicated to other systems.
+
+#### 2. What can you do with MySQL in Oracle Enterprise Manager?
+- [ ] Back up a MySQL database instance.
+- [x] Monitor MySQL Performance. ✅
+- [ ] Add extra security to the MySQL database.
+- [ ] Create a MySQL InnoDB ReplicaSet.
+
+> The Oracle Enterprise Manager tool is used to monitor the following MySQL activities: Performance, System availability, replication topology, InnoDB performance characteristics and locking, bad queries caught by the MySQL Enterprise firewall, and events that are raised by MySQL Enterprise Audit.
+
+#### 3. Slow query log is used to capture long-running SQL statements. Which is NOT logged by default?
+- [ ] Queries that use an index
+- [x] Administrative statements ✅
+- [ ] Queries that use a join operation
+- [ ] SELECT statements
+
+> By default, administrative statements are not logged, nor are queries that do not use indexes for lookups. This behavior can be changed using log_slow_admin_statements and log_queries_not_using_indexes.
+
+#### 4. Which part of the database is the highest source of Database Performance Problems?
+- [ ] The overall size of retained data in the active dataset
+- [ ] The underlying hardware
+- [x] The SQL, index, and Schema group ✅
+- [ ] The database structure
+
+> 90% of Performance Problems come from the SQL, index, and Schema group. Poor SQL query design or incorrect use of indexes can significantly impact database performance.
+
+#### 5. Which MySQL schema has its own dedicated storage engine?
+- [ ] mysal schema
+- [ ] sakila Schema
+- [ ] world schema
+- [x] Performance schema ✅
+
+> It is the Performance schema that has its own dedicated engine called PERFORMANCE_SCHEMA to store performance data, whereas mysql, world, and sakila schemas use the default InnoDB storage engine.
+
+***

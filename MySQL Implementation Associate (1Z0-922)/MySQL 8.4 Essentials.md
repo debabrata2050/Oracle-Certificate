@@ -353,3 +353,45 @@
 > It is the Performance schema that has its own dedicated engine called PERFORMANCE_SCHEMA to store performance data, whereas mysql, world, and sakila schemas use the default InnoDB storage engine.
 
 ***
+
+## HeatWave
+
+#### 1. Which machine learning technique is NOT supported by HeatWave ML?
+- [ ] Recommendation Systems
+- [ ] Forecasting
+- [ ] Anomaly Detection
+- [x] Clustering ✅
+
+> HeatWave ML currently supports Anomaly Detection, Classification, Forecasting, Recommendation Systems, and Regression techniques. Clustering is a technique that looks for similar data points and groups them together based on certain features. Clustering is not supported by HeatWave ML.
+
+#### 2. Which action can you perform using the HeatWave service web-based console?
+- [ ] Connect to MySQL Workbench.
+- [ ] Write SQL code.
+- [x] Deploy your instances and manage their backups. ✅
+- [ ] Install MySQL Shell.
+
+> The HeatWave service is a fully-managed MySQL. Through the web-based console, you can deploy your instances and manage their backups, enable high availability, resize your instances, create read replicas and perform many common administration tasks without writing a line of SQL.
+
+#### 3. From which cloud service can you use HeatWave?
+- [ ] Google Cloud Platform (GCP)
+- [ ] Salesforce Cloud
+- [x] Amazon Web Services (AWS) ✅
+- [ ] IBM Cloud
+
+> HeatWave is not just available in Oracle Cloud Infrastructure. You can use HeatWave from your applications in Amazon Web Services and Microsoft Azure too, and at a great price.
+
+#### 4. Which HeatWave feature allows you to query data from Object Storage?
+- [ ] Read Replicas
+- [ ] High Availability
+- [x] Lakehouse ✅
+- [ ] Autopilot
+
+> HeatWave Lakehouse enables query processing on data resident in Object Storage. The file formats supported by this feature are Avro, CSV, JSON, and Parquet.
+
+#### 5. Which database platform does HeatWave use to store OLTP data?
+- [x] MySQL ✅
+- [ ] TimesTen In-Memory Database
+- [ ] Berkley DB
+- [ ] Oracle Database
+
+***

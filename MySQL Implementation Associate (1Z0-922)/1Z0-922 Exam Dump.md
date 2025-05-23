@@ -66,6 +66,18 @@
 - [ ] RUN REPLICA
 - [ ] REPLICA START
 
+#### Q. Which replication is the default in MySQL?
+- [ ] Semi-synchronous
+- [x] Asynchronous ✅
+- [ ] Quasi-synchronous
+- [ ] Synchronous
+
+#### Q. Which statement is true about MySQL Replication?
+- [ ] Data is copied from replica to source.
+- [x] Multiple replicas are possible. ✅
+- [ ] There can only be one source.
+- [ ] Replication can only be asynchronous
+
 #### Q. What is the benefit of using MySQL Enterprise Thread Pool?
 - [ ] Observability
 - [ ] Monitoring
@@ -104,6 +116,12 @@
 - [ ] Performance schema
 - [ ] mysql schema
 - [ ] Information schema
+
+#### Q. Which monitoring tool is included with MySQL Enterprise Edition?
+- [ ] Oracle Automatic Database Diagnostic Monitor (ADDM)
+- [x] Oracle Enterprise Manager ✅
+- [ ] Oracle GoldenGate
+- [ ] Oracle Exadata
 
 #### Q. Which schema provides runtime statistics to monitor MySQL server execution at a low level?
 - [ ] sys schema

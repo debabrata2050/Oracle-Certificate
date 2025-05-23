@@ -186,3 +186,43 @@
 > MySQL Enterprise Masking and De-Identification feature can be implemented through either a plugin or a component. Plugins are a *set of loadable functions* that provide a SQL-level API for performing operations such as masking and de-identification. Components are *self-contained code containers* that interact with other code exclusively by implementing and consuming services via the registry. However, enabling both at the same time is unsupported and results may not be as anticipated.
 
 ***
+
+## MySQL Backup
+
+#### 1. What must you do to restore from a backup using MySQL Enterprise Backup?
+- [ ] Shut down the MySQL database system.
+- [ ] Review the SQL script generated script to make sure it is valid.
+- [ ] Unzip the MySQL Enterprise Backup file.
+- [x] Remove any previous files from the MySQL data directory. ✅
+
+> To restore from a backup using MySQL Enterprise Backup, you must first remove any previous files from the data directory. The restore process will fail if you attempt to restore over an existing system or backup.
+
+#### 2. How does MySQL Enterprise Backup support optimistic backup?
+- [x] It records all data including data from busy tables. ✅
+- [ ] It puts the database server in read-only mode.
+- [ ] It locks up tables during the backup process.
+- [ ] It ignores data from busy tables.
+
+> MySQL Enterprise Backup supports optimistic backup. This process deals with busy tables separately from the rest of the database. It can record changes that happen in the database during the backup, for consistency. In a large dataset, this can make a huge difference in performance.
+
+#### 3. What makes a database backup effective?
+- [x] Being able to restore the backup data ✅
+- [ ] Monitoring the backup for consistency
+- [ ] Not exceeding limitations for the backup resources
+- [ ] Scheduling the backup
+
+> No backup is effective unless you can use it to restore your data. It is important to not just create backups, but to also regularly test the restoration process to ensure it works effectively.
+
+#### 4. Which statement is true about the mysqldump utility?
+- [ ] mysqldump is excellent for backing up large databases.
+- [x] The mysqldump output is a human-readable text file with SQL statements. ✅
+- [ ] mysqldump is fast and does not require locking tables.
+- [ ] mysqldump is a standard way to create physical backups.
+
+#### 5. What is the MySQL Enterprise Backup utility designed for?
+- [ ] Create a snapshot of the MySQL storage medium
+- [ ] Perform upgrades of MySQL systems
+- [ ] Create Logical backup of MySQL systems
+- [x] Create Physical backup of MySQL systems ✅
+
+***

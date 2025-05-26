@@ -131,10 +131,10 @@
 
 #### Q. Consider this SQL statement which is using the InnoDB storage enginer and with global AUTOCOMMIT=1:
 ```sql
-BEGIN
+BEGIN;
 CREATE TABLE t1 (cl INT);
 CREATE TABLE t2 (cl INT);
-ROLLBACK
+ROLLBACK;
 ```
 #### What is the result after issuing the ROLLBACK command?
 - [ ] Both the tables t1 and t2 are not created because there is an explicit ROLLBACK

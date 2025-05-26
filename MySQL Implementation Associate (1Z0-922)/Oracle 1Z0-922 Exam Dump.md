@@ -129,6 +129,19 @@
 - [ ] Information schema
 - [x] Performance schema ✅
 
+#### Q. Consider this SQL statement which is using the InnoDB storage enginer and with global AUTOCOMMIT=1:
+```sql
+BEGIN
+CREATE TABLE t1 (cl INT);
+CREATE TABLE t2 (cl INT);
+ROLLBACK
+```
+#### What is the result after issuing the ROLLBACK command?
+- [ ] Both the tables t1 and t2 are not created because there is an explicit ROLLBACK
+- [x] Both the tables t1 and t2 are created ✅
+- [ ] Only the t1 table is created
+- [ ] Only the t2 table is created
+
 #### Q. Which MySQL storage engine is fully ACID compliant and also the default when creating a table?
 - [ ] Memory
 - [x] InnoDB ✅

@@ -65,12 +65,42 @@
 - [ ] Ideal for fast-paced development environments
 - [ ] Released every quarter
 
+#### Q. You install MySQL from binary archive and use the --initialize-insecure option to initialize the data directory. Why is this process insecure?
+- [ ] It removes all the MySQL Enterprise Security features.
+- [ ] It disables all the logging done by the MySQL server.
+- [x] It does not generate a root password. ✅
+- [ ] It prevents the MySQL server from starting up properly.
+
 #### Q. What statement allows you to assign a password to a MySQL user account?
 - [ ] GRANT PASSWORD
 - [ ] ASSIGN PASSWORD
 - [ ] NEW PASSWORD
 - [x] SET PASSWORD ✅
 - [ ] CREATE PASSWORD
+
+#### Q. Which two statements are true about MySQL Enterprise Authentication?
+- [x] MySQL Enterprise Authentication supports Windows Active Directory. ✅
+- [ ] MySQL Enterprise Authentication determines what operations the user can perform.
+- [x] MySQL Enterprise Authentication supports Linux Pluggable Authentication Modules (PAM). ✅
+- [ ] MySQL Enterprise Authentication makes it more difficult to set up security because you have different sets of security policies.
+- [ ] MySQL Enterprise Authentication automatically connects to Oracle Password Vault to verify user passwords.
+
+#### Q. Assume that the database world exists and does not contain a table called poi. You execute this statement:
+```sql
+CREATE TABLE world.poi (x INT, y INT, z INT);
+```
+#### What is the output?
+- [ ] The world.poi table is created in the default database.
+- [x] The poi table is created in the world database. ✅
+- [ ] The poi table is created in the default database.
+- [ ] The statement fails because world.poi is not a valid table name.
+
+#### Q. In MySQL, the word "schema" is a synonym for which word?
+- [ ] Server
+- [ ] Instance
+- [ ] Table
+- [ ] View
+- [x] Database ✅
 
 #### Q. What type of backups do mysqldump and MySQL Shell take?
 - [ ] Operating System

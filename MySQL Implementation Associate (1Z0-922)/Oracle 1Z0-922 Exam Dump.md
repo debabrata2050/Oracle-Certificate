@@ -83,6 +83,22 @@
 - [x] It does not generate a root password. ✅
 - [ ] It prevents the MySQL server from starting up properly.
 
+#### Q. A table has this specification:
+```sql
+CREATE TABLE address {
+id INT NOT NULL,
+last_name CHAR(30) NOT NULL,
+first_name CHAR(30) NOT NULL,
+city CHAR(30) NOT NULL,
+INDEX LASTFIRST (last_name, first_name)
+};
+```
+#### Which statement will NOT use an index?
+- [ ] SELECT * FROM address WHERE last_name='Doe';
+- [x] SELECT * FROM address WHERE city='Chicago'; ✅
+- [ ] SELECT * FROM address WHERE last_name='Doe' AND (first_name='John' OR first_name='Other');
+- [ ] SELECT * FROM address WHERE last_name='Doe' AND first_name='John';
+
 #### Q. What statement allows you to assign a password to a MySQL user account?
 - [ ] GRANT PASSWORD
 - [ ] ASSIGN PASSWORD
@@ -282,6 +298,12 @@ ROLLBACK;
 - [ ] Source-Replica
 - [x] Source-Source ✅
 
+#### Q. Which keyword can be used in a SQL statement to view information about how tables will be joined and in which order?
+- [ ] USE
+- [x] EXPLAIN ✅
+- [ ] DECLARE
+- [ ] HELP
+
 #### Q. HeatWave is a fully-managed database service for MySQL in Oracle Cloud Infrastructure (OCI). 
 #### Which three actions can be performed in the HeatWave cloud console without any SQL coding?
 - [X] Deploy MySQL instances ✅
@@ -290,6 +312,12 @@ ROLLBACK;
 - [x] Manage backups ✅
 - [ ] Enable high availability
 - [x] Reset user password ✅
+
+#### Q. Which query will find rows in a table that have no counterparts in another table?
+- [ ] SELECT * FROM table1 INNER JOIN table2 ON table1.id=table2.id WHERE table1.id =! table2.id;
+- [x] SELECT left_tbl.* FROM left_tb1 LEFT JOIN right_tbl ON left_tb1.id = right_tbl.id WHERE right_tbl.id IS NULL; ✅
+- [ ] SELECT t1.name, t2.name2 FROM employee t1 INNER JOIN info t2 WHERE t1.name = t2.name;
+- [ ] SELECT t1.name, t2.name2 FROM employee AS t1 INNER JOIN info AS t2 ON t1.name = t2.name2;
 
 #### Q. Which three components are part of the core MySQL database architecture?
 - [x] Optimizer ✅

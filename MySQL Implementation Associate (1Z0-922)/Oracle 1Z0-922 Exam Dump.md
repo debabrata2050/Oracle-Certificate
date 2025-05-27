@@ -18,6 +18,14 @@
 - [ ] Minimum 3 and maximum 7
 - [ ] Minimum 5 and maximum 9
 
+#### Q. Which three public clouds offer the HeatWave service?
+- [ ] DigitalOcean
+- [x] Amazon Web Services (AWS) ✅
+- [ ] Google Cloud Platform (GCP)
+- [ ] IBM Cloud
+- [x] Oracle Cloud Infrastructure (OCI) ✅
+- [x] Azure ✅
+
 #### Q. Why are indexes used in MySQL?
 - [ ] To speed up DELETE operations
 - [x] To speed up SELECT operations ✅
@@ -346,3 +354,9 @@ ROLLBACK;
 - [x] MySQL Shell, to create and administer InnoDB Cluster using the built-in AdminAPI ✅
 - [x] MySQL Router, to ensure client requests are load balanced and routed to the correct server ✅
 - [ ] MySQL X Plugin, to enable MySQL to use the X Protocol to speed up and monitor data replication
+
+#### Q. How does MySQL Enterprise Firewall block SQL Injection attacks?
+- [x] By matching the SQL statements against the allowlist ✅
+- [ ] By protecting the database files and encrypting them using AES-256
+- [ ] By hiding or obfuscating sensitive data
+- [ ] By Automatically and intelligently knowing beforehand when a SQL Injection is about to happen

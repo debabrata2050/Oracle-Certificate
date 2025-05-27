@@ -12,12 +12,24 @@
 - [ ] Usemame, host, and password
 - [ ] Username and password
 
+#### Q. What are the minimum and maximum number of MySQL Servers you can have in an InnoDB Cluster?
+- [ ] Minimum 1 and maximum 5
+- [x] Minimum 3 and maximum 9 ✅
+- [ ] Minimum 3 and maximum 7
+- [ ] Minimum 5 and maximum 9
+
 #### Q. Why are indexes used in MySQL?
 - [ ] To speed up DELETE operations
 - [x] To speed up SELECT operations ✅
 - [ ] To speed up CREATE operations
 - [ ] To speed up INSERT operations
 - [ ] To speed up ALTER operations
+
+#### Q. Why should one choose MySQL Enterprise Edition over MySQL Community/Standard Edition?
+- [x] It provides tools and advanced features. ✅
+- [ ] It provides NDB storage engine.
+- [ ] It provides access to MySQL Connectors.
+- [ ] It provides ACID properties.
 
 #### Q. MySQL has many variables. Which two are mandatory MySQL variables?
 - [ ] filedir
@@ -187,12 +199,25 @@ CREATE TABLE world.poi (x INT, y INT, z INT);
 - [ ] PHP
 - [x] SQL ✅
 
+#### Q. Which two MySQL features are available in the Community Edition but are fully supported in the Enterprise Edition?
+- [ ] MySQL Cluster Manager
+- [x] MySQL Router ✅
+- [x] MySQL Document Store ✅
+- [ ] Storage Engine NDB
+- [ ] MySQL Enterprise Backup
+
 #### Q. Which two Autopilot features you are during initial DB System and Analytics cluster deployment?
 - [x] Auto Shape Prediction ✅
 - [x] Auto Data Placement ✅
 - [ ] Auto Parallel Loading
 - [ ] Auto Provisioning
 - [ ] Auto Encoding
+
+#### Q. What is true about MySQL Enterprise Transparent Data Encryption (TDE)?
+- [ ] It encrypts data-in-flight so that it is only visible unencrypted at the server and client.
+- [ ] Data is encrypted in real time after it is written to storage.
+- [ ] Encryption key is stored in a centralized key memory location.
+- [x] It enables data-at-rest encryption with a strong symmetric algorithm. ✅
 
 #### Q. Which three operating systems are supported by MySQL?
 - [x] macOS ✅

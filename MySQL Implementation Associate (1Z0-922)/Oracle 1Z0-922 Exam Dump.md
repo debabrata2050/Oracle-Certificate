@@ -19,6 +19,26 @@
 - [ ] To speed up INSERT operations
 - [ ] To speed up ALTER operations
 
+#### Q. MySQL has many variables. Which two are mandatory MySQL variables?
+- [ ] filedir
+- [x] basedir ✅
+- [x] datadir ✅
+- [ ] dbdir
+- [ ] tabledir
+
+#### Q. Which statement is used to assign privileges to a MySQL user?
+- [ ] SET
+- [ ] UPDATE
+- [ ] USE
+- [x] GRANT ✅
+- [ ] ALTER
+
+#### Q. How would you start the MySQL server without using the privilege system or by disabling the access control?
+- [x] Use the --skip-grant-tables option.  ✅
+- [ ] Use the --disable-grants command option.
+- [ ] Use the --no-grants command option.
+- [ ] Use the --block-privilege option.
+
 #### Q. What are the two ways to install MySQL on a Linux platform?
 - [ ] By using MySQL Installer
 - [ ] By using .DMG disk image

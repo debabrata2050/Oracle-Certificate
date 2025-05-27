@@ -19,6 +19,19 @@
 - [ ] To speed up INSERT operations
 - [ ] To speed up ALTER operations
 
+#### Q. What are the two ways to install MySQL on a Linux platform?
+- [ ] By using MySQL Installer
+- [ ] By using .DMG disk image
+- [x] By using Yum/APT Repositories ✅
+- [x] By using RPM packages ✅
+
+#### Q. Which two statements about the download of MySQL Enterprise Backup are correct?
+- [ ] MySQL Enterprise Backup comes with all MySQL editions including the Community Edition.
+- [ ] MySQL Enterprise Backup comes with MySQL Connector and is freely available for download.
+- [x] MySQL Enterprise Backup is a separate package from MySQL Enterprise Edition. It can be downloaded from https://edelivery.oracle.com. ✅
+- [ ] MySQL Enterprise Backup comes with MySQL Utilities Package, which is available for download publicly on https://www.mysql.com.
+- [x] MySQL Enterprise Backup can be downloaded from My Oracle Support (MOS). ✅
+
 #### Q. Under which category do FLOAT and DOUBLE data types fall?
 - [x] Numeric Approximate Value ✅
 - [ ] Bit-value Type

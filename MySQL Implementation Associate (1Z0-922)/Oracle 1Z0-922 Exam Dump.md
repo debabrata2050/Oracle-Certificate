@@ -12,6 +12,26 @@
 - [ ] Usemame, host, and password
 - [ ] Username and password
 
+#### Q. Why are indexes used in MySQL?
+- [ ] To speed up DELETE operations
+- [x] To speed up SELECT operations ✅
+- [ ] To speed up CREATE operations
+- [ ] To speed up INSERT operations
+- [ ] To speed up ALTER operations
+
+#### Q. Under which category do FLOAT and DOUBLE data types fall?
+- [x] Numeric Approximate Value ✅
+- [ ] Bit-value Type
+- [ ] Spatial Type
+- [ ] Numeric Exact Value
+
+#### Q. Which two options are true about the MySQL Long-Term Support release model?
+- [ ] Available only with MySQL Enterprise Edition
+- [x] Allows backward compatibility ✅
+- [x] Includes bug fix and security patches only ✅
+- [ ] Ideal for fast-paced development environments
+- [ ] Released every quarter
+
 #### Q. What statement allows you to assign a password to a MySQL user account?
 - [ ] GRANT PASSWORD
 - [ ] ASSIGN PASSWORD
@@ -25,7 +45,7 @@
 - [x] Logical ✅
 - [ ] Physical
 
-#### Q. Your customer has a 75 GB MySOL database. They are using mysqldump to take a backup of their database, which is taking the five hours to complete.
+#### Q. Your customer has a 75 GB MySQL database. They are using mysqldump to take a backup of their database, which is taking the five hours to complete.
 #### What can your customer do to decrease the amount of time it takes to back up their database?
 - [ ] Back up the database by using mysqldump to send the backup to another server
 - [ ] Back up the database to a local drive
@@ -104,6 +124,13 @@
 - [ ] PHP
 - [x] SQL ✅
 
+#### Q. Which two Autopilot features you are during initial DB System and Analytics cluster deployment?
+- [x] Auto Shape Prediction ✅
+- [x] Auto Data Placement ✅
+- [ ] Auto Parallel Loading
+- [ ] Auto Provisioning
+- [ ] Auto Encoding
+
 #### Q. Which three operating systems are supported by MySQL?
 - [x] macOS ✅
 - [x] Windows ✅
@@ -166,6 +193,15 @@ ROLLBACK;
 - [ ] MySQL Chain
 - [ ] Source-Replica
 - [x] Source-Source ✅
+
+#### Q. HeatWave is a fully-managed database service for MySQL in Oracle Cloud Infrastructure (OCI). 
+#### Which three actions can be performed in the HeatWave cloud console without any SQL coding?
+- [X] Deploy MySQL instances ✅
+- [ ] Delete a schema
+- [ ] Create database tables
+- [x] Manage backups ✅
+- [ ] Enable high availability
+- [x] Reset user password ✅
 
 #### Q. Which three components are part of the core MySQL database architecture?
 - [x] Optimizer ✅

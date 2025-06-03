@@ -139,3 +139,105 @@
 - [ ] Convert tokens into numerical forms (vectors) that the model can understand. 
 - [ ] Apply a specific function to each word individually.
 
+#### Q. What is the role of the self-attention mechanism in a transformer model? 
+- [x] It assigns different importance to each word in a sequence based on context. ✅
+- [ ] It replaces all previous deep learning techniques for text processing. 
+- [ ] It memorizes and retrieves specific words from past training examples. 
+- [ ] It forces the model to only focus on the most recent words in a sequence.
+
+#### Q. Which type of machine learning is used to understand relationships within data and is not focused on making predictions or classifications? 
+- [ ] Supervised learning 
+- [x] Unsupervised learning ✅
+- [ ] Reinforcement learning 
+- [ ] Active learning
+
+#### Q. You're analyzing customer feedback forms to identify common complaints. Which machine learning approach would you use? 
+- [ ] Reinforcement Learning 
+- [ ] Deep Learning 
+- [x] Unsupervised Learning ✅
+- [ ] Supervised Learning
+
+#### Q. How is "Prompt Engineering" different from “Fine-tuning" in the context of Large Language Models (LLMs)? 
+- [ ] Prompt Engineering modifies training data, while Fine-tuning alters the model's structure. 
+- [ ] Both involve retraining the model, but Prompt Engineering does it more often. 
+- [x] Prompt Engineering creates input prompts, while Fine-tuning retrains the model on specific data. ✅
+- [ ] Prompt Engineering adjusts the model's parameters, while Fine-tuning crafts input prompts.
+
+#### Q. What is a key advantage of using dedicated Al clusters in the OCI Generative Al service? 
+- [x] They provide high performance compute resources for fine-tuning tasks. ✅
+- [ ] They allow access to unlimited database resources. 
+- [ ] They provide faster internet connection speeds. 
+- [ ] They are free of charge for all users.
+
+#### Q. Which is NOT a category of pretrained foundational models available in the OCI Generative Al service? 
+- [x] Translation models ✅
+- [ ] Generation models 
+- [ ] Chat models 
+- [ ] Embedding models
+
+#### Q. What does "fine-tuning" refer to in the context of OCI Generative Al service? 
+- [ ] Upgrading the hardware of the Al clusters 
+- [ ] Doubling the neural network layers 
+- [x] Adjusting the model parameters to improve accuracy ✅
+- [ ] Encrypting the data for security reasons
+
+#### Q. What is the benefit of using embedding models in OCI Generative Al service? 
+- [ ] They simplify managing databases. 
+- [ ] They enable creating detailed graphics. 
+- [ ] They optimize the use of computational resources. 
+- [x] They facilitate semantic searches. ✅
+
+#### Q. What is “in-context learning" in the realm of Large Language Models (LLMs)? 
+- [ ] Training a model on a diverse range of tasks 
+- [ ] Modifying the behavior of a pretrained LLM permanently 
+- [x] Providing a few examples of a target task via the input prompt ✅
+- [ ] Teaching a model through zero-shot learning
+
+#### Q. Which is NOT a capability of OCI Vision's image analysis? 
+- [x] Translating text in images to another language ✅
+- [ ] Object detection with bounding boxes 
+- [ ] Assigning classification labels to images 
+- [ ] Locating and extracting text in images
+
+#### Q. Which feature is NOT supported as part of the OCI Lanquage service's pretrained language processing capabilities? 
+- [ ] Language Detection 
+- [ ] Sentiment Analysis 
+- [ ] Text Classification 
+- [x] Text Generation ✅
+
+#### Q. What Is the primary benefit of using the OCI Language service for text analysis? 
+- [ ] It provides image processing capabilities. 
+- [x] It allows for text analysis at scale without machine learning expertise. ✅
+- [ ] It only works with structured data. 
+- [ ] It requires extensive machine learning expertise to use.
+
+#### Q. You are working on a project for a healthcare organization that wants to develop a system to predict the severity of patients’ illnesses upon admission to a hospital. The goal is to classify patients into three categories — Low Risk, Moderate Risk, and High Risk — based on their medical history and vital signs. 
+- [ ] Which type of supervised learning algorithm is required in this scenario? 
+- [ ] Binary Classification 
+- [ ] Regression 
+- [x] Multi-Class Classification ✅
+- [ ] Clustering
+
+#### Q. What is the difference between classification and regression in Supervised Machine Learning? 
+- [x] Classification assigns data points to categories, whereas regression predicts continuous values. ✅
+- [ ] Classification predicts continuous values, whereas regression assigns data points to categories. 
+- [ ] Classification and regression both predict continuous values. 
+- [ ] Classification and regression both assign data points to categories.
+
+#### Q. Which Al Ethics principle leads to the Responsible Al requirement of transparency? 
+- [ ] Respect for human autonomy 
+- [ ] Prevention of harm 
+- [ ] Fairness 
+- [x] Explicability ✅
+
+#### Q. How does Al enhance human efforts? 
+- [ ] By completely replacing human workers in all tasks 
+- [ ] By increasing the physical strength of humans 
+- [ ] By deleting data humans need to handle 
+- [x] By processing data at a speed and effectiveness far beyond human capability ✅
+
+#### Q. What is the primary benefit of using Oracle Cloud Infrastructure Supercluster for Al workloads? 
+- [ ] It offers seamless integration with social media platforms. 
+- [ ] It provides a cost-effective solution for simple Al tasks. 
+- [x] It delivers exceptional performance and scalability for complex Al tasks. ✅
+- [ ] It is ideal for tasks such as text-to-speech conversion.

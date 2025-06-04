@@ -30,51 +30,53 @@
 - [ ] Converts the question to keywords, searches for matches, and inserts the text into the response.
 
 #### Q. What is the function of the COSINE parameter in the SQL query used to retrieve similar vectors?
-...
+```sql
 topK = 3
 sql = f"""select payload, vector _distance(vector, :vector, COSINE) as score from {table name} order by score fetch approx first
 {topK} rows only"""
-...
+```
 - [ ] It filters out vectors with a cosine similarity below a certain threshold.
 - [ ] It specifies the type of vector encoding used in the database.
 - [x] It indicates that the cosine distance metric should be used to measure similarity between vectors. ✅
 - [ ] It converts the vectors to a format com patible with the SQL database.
 
 #### Q. In the following Python code, what is the significance of prepending the source filename to each text chunk before storing it in the vector database?
-...
+```python
 docs = [{'text': filename + ' | ' + section, 'path': filename} for filename, sections in faqs.items() for section in sections]
 # Sample the resulting data
 docs[:2]
-...
+```
 - [ ] It speeds up the vectorization process by providing a unique identifier for each chunk.
 - [ ] It improves the accuracy of the LLM by providing additional training data.
 - [x] It preserves context and aids in the retrieval process by associating each vectorized chunk with its original source file. ✅
 - [ ] It helps differentiate between chunks from different files but has no impact on vectorization.
 
 #### Q. Which Python library is used to vectorize text chunks and the user's question in the following example?
-...
+```python
 import oracledb
+
 connection = oracledb.connect(user=un, password=pw, dsn=cs)
-table name = 'fags'
+table_name = 'fags'
+
 with connection.cursor() as cursor:
-# Create the table
-create table sql = f"""
-CREATE TABLE IF NOT EXISTS {table name} (
-id NUMBER PRIMARY KEY,
-payload CLOB CHECK (payload IS JSON),
-vector VECTOR
-)"""
-try:
-cursor.execute(create_table_sql)
-except oracledb.DatabaseError as e:
-raise
+    # Create the table
+    create_table_sql = f"""
+    CREATE TABLE IF NOT EXISTS {table_name} (
+    id NUMBER PRIMARY KEY,
+    payload CLOB CHECK (payload IS JSON),
+    vector VECTOR
+    )"""
+    try:
+        cursor.execute(create_table_sql)
+    except oracledb.DatabaseError as e:
+        raise
+
 connection.autocommit = True
 
-from sentence transformers import SentenceTransformer
-encoder = SentenceTransformer ("all-MiniLM-L12-v2')
+from sentence_transformers import SentenceTransformer
+encoder = SentenceTransformer("all-MiniLM-L12-v2")
 
-...
-
+```
 - [ ] sentence_transformers
 - [x] oracledb ✅
 - [ ] oci
@@ -279,23 +281,16 @@ How should they improve the search accuracy?
 - [x] It is simpler and faster because it avoids square-root calculations. ✅
 
 #### Q. Which SQL query would retrieve the top-10 vectors based on Euclidean distance using exact similarity search?
-- [x] SELECT docID
-FROM vector_tab
+- [x] SELECT docID FROM vector_tab
 GROUP BY VECTOR_DISTANCE (embedding, :query_vector, EUCLIDEAN)
 FETCH FIRST 10 ROWS ONLY; ✅
-
-- [ ] SELECT docID
-FROM vector_tab
+- [ ] SELECT docID FROM vector_tab
 ORDER BY VECTOR_DISTANCE (embedding, :query_vector, COSINE)
 FETCH EMACT FIRST 10 ROWS ONLY;
-
-- [ ] SELECT docID
-FROM vector_tab
+- [ ] SELECT docID FROM vector_tab
 ORDER BY VECTOR_DISTANCE (embedding, :query_vector, EUCLIDEAN)
 FETCH EXACT FIRST 10 ROWS ONLY;
-
-- [ ] SELECT docID
-FROM vector_tab
+- [ ] SELECT docID FROM vector_tab
 WHERE VECTOR DISTANCE (embedding, :query_vector, EUCLIDEAN) < 10;
 
 #### Q. What is the purpose of the VECTOR_DISTANCE function in Oracle Database 23ai similarity search?

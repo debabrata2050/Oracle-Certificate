@@ -1,5 +1,4 @@
 # Oracle Exam Dump Questions
-![](https://img.shields.io/badge/Curated_by-Debabrata_Halder-orange)
 ![](https://img.shields.io/badge/Last_Update-06--2025-brightgreen)
 
 

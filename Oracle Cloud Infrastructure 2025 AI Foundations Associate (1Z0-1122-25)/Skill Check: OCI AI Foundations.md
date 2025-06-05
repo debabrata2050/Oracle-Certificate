@@ -37,3 +37,37 @@
 - [ ] Language translation
 
 ***
+
+## ML Basics
+
+#### Which algorithm is used for predicting continuous numerical values?
+- [ ] K-Means Clustering
+- [ ] Logistic Regression
+- [x] Linear Regression ✅
+- [ ] Decision Tree Classification
+
+#### What type of Machine Learning algorithm is used when we want to predict the resale price on a residential property?
+- [ ] Anomaly Detection
+- [ ] Binary Classification
+- [ ] Multiclass Classification
+- [x] Regression ✅
+
+#### Which type of Machine Learning algorithm learns from outcomes to make decisions?
+- [x] Reinforcement Learning ✅
+- [ ] Natural Language Processing
+- [ ] Unsupervised Learning
+- [ ] Supervised Learning
+
+#### Which application does NOT require a Machine Learning solution?
+- [ ] Customer Segmentation
+- [ ] Stock Price Predictions
+- [ ] Detecting spam emails
+- [x] Password Validation ✅
+
+#### Which type of function is used in Logistic Regression to predict a loan defaulter?
+- [x] Sigmoidal function ✅
+- [ ] Step function
+- [ ] Identity function
+- [ ] Gaussian function
+
+***

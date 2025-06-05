@@ -71,3 +71,42 @@
 - [ ] Gaussian function
 
 ***
+
+## DL Basics
+
+#### Which type of Recurrent Neural Network (RNN) architecture is used for Machine Translation?
+- [ ] Many-to-One
+- [ ] One-to-One
+- [ ] One-to-Many
+- [x] Many-to-Many ✅
+
+> Machine Translation involves translating a sentence or a sequence of text from one language to another, which is essentially a sequence-to-sequence problem. In Many-to-Many RNN architecture, the network takes a sequence of inputs and produces a sequence of outputs. In the context of machine translation, this means it can take a sequence of words or tokens in one language as input and generate a corresponding sequence of words or tokens in another language as output.
+
+#### Which sequence model can maintain relevant information over long sequences?
+- [ ] Recurrent Neural Networks
+- [ ] Convolutional Neural Networks
+- [x] Long Short-Term Memory Neural Networks ✅
+- [ ] Feed Forward Neural Networks
+
+> Long Short-Term Memory (LSTM) Neural Networks are the sequence model of choice when it comes to handling and maintaining relevant information over long sequences, making them particularly well-suited for tasks like language modeling, machine translation, and speech recognition.
+
+#### Which Neural Network has a feedback loop and is designed to handle sequential data?
+- [ ] Multi-Layer Perceptron Neural Networks
+- [ ] Convolution Neural Networks
+- [ ] Feed Forward Neural Networks
+- [x] Recurrent Neural Networks ✅
+
+#### Which essential component of Artificial Neural Network performs weighted summation and applies activation function on input data to produce an output?
+- [ ] Classifier
+- [ ] Bias
+- [x] Neuron ✅
+- [ ] Iterator
+
+#### How do hidden layers in neural networks help with character recognition?
+- [ ] Directly mapping input characters to output predictions
+- [ ] Improving the interpretability of the model s decisions
+- [ ] Increasing the network's processing speed
+- [x] Enabling the network to learn complex features like edges and shapes ✅
+
+> Hidden layers in neural networks are crucial for character recognition because they enable the network to learn and extract complex features and patterns, such as edges, shapes, and curves, which are essential for recognizing characters.
+***

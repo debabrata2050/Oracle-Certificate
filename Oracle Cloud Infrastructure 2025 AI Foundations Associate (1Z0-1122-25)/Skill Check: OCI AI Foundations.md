@@ -147,3 +147,37 @@
 > The size and complexity of a language model, including the number of parameters (weights) and tokens have a profound impact on its capabilities and performance. Larger models with more parameters tend to have a better understanding of language and can generate more coherent and contextually relevant text. Larger models, however, require substantial computational resources, including GPUs and memory, for both training and inference.
 
 ***
+
+## OCI AI Portfolio
+
+#### Which data type is used in Oracle Database 23ai to compare documents?
+- [ ] Array
+- [x] Vector
+- [ ] Boolean
+- [ ] String
+
+#### Which OCI Data Science feature enables you to define and run repeatable machine learning tasks on fully managed infrastructure?
+- [x] Jobs
+- [ ] Conda Environments
+- [ ] Model Detection
+- [ ] Model Catalog
+
+#### What is the advantage of using OCI Superclusters for Al workloads?
+- [ ] Offer seamless integration with social media platforms.
+- [ ] Provide a cost-effective solution for simple Al tasks.
+- [ ] Are ideal for tasks like text-to-speech conversion.
+- [x] Deliver exceptional performance and scalability for complex Al tasks.
+
+#### Which OCI Data Science feature allows you to use catalogued models as HTTP endpoints on fully managed infrastructure?
+- [ ] Conda Environments
+- [ ] Model Catalog
+- [x] Model Deployments
+- [ ] Jobs
+
+#### Which is NOT an Oracle Cloud Infrastructure Al service?
+- [x] Translator
+- [ ] Vision
+- [ ] Speech
+- [ ] Language
+
+***

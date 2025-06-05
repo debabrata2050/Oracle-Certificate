@@ -1,4 +1,5 @@
-# MySQL 8.4: Essentials
+# Skill Check
+## MySQL 8.4: Essentials
 
 ## Enterprise Edition
 

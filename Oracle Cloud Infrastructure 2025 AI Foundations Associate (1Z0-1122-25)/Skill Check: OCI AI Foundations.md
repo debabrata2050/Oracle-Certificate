@@ -152,12 +152,12 @@
 
 #### Which data type is used in Oracle Database 23ai to compare documents?
 - [ ] Array
-- [x] Vector
+- [x] Vector ✅
 - [ ] Boolean
 - [ ] String
 
 #### Which OCI Data Science feature enables you to define and run repeatable machine learning tasks on fully managed infrastructure?
-- [x] Jobs
+- [x] Jobs ✅
 - [ ] Conda Environments
 - [ ] Model Detection
 - [ ] Model Catalog
@@ -166,18 +166,54 @@
 - [ ] Offer seamless integration with social media platforms.
 - [ ] Provide a cost-effective solution for simple Al tasks.
 - [ ] Are ideal for tasks like text-to-speech conversion.
-- [x] Deliver exceptional performance and scalability for complex Al tasks.
+- [x] Deliver exceptional performance and scalability for complex Al tasks. ✅
 
 #### Which OCI Data Science feature allows you to use catalogued models as HTTP endpoints on fully managed infrastructure?
 - [ ] Conda Environments
 - [ ] Model Catalog
-- [x] Model Deployments
+- [x] Model Deployments ✅
 - [ ] Jobs
 
 #### Which is NOT an Oracle Cloud Infrastructure Al service?
-- [x] Translator
+- [x] Translator ✅
 - [ ] Vision
 - [ ] Speech
 - [ ] Language
+
+***
+
+## OCI Gen AI Service
+
+#### How do chat models in OCI Generative Al differ from embedding models?
+- [ ] Both chat and embedding models perform the same function
+- [x] Chat models generate text, while embedding models convert text into numerical representations ✅
+- [ ] Chat models are for search queries, while embedding models process images
+- [ ] Embedding models generate text responses, while chat models focus on vector representations
+
+#### What is the primary purpose of the OCl Playground in Generative Al?
+- [x] To visually explore and test pre-trained and fine-tuned models without writing code ✅
+- [ ] To store embeddings for Al vector search
+- [ ] To deploy Al models for production use
+- [ ] To manage GPU-based compute resources for Al training
+
+#### Which key feature allows Al Vector Search to store embeddings in Oracle Database 23ai?
+- [x] VECTOR datatype ✅
+- [ ] Graph-based indexing
+- [ ] IMAGE datatype
+- [ ] JSON object storage
+
+> The VECTOR datatype in Oracle Database 23ai is specifically designed to store embeddings for AI Vector Search. This datatype allows efficient storage and retrieval of high-dimensional numerical representations of data, enabling similarity searches for AI and machine learning applications.
+
+#### What is the purpose of model endpoints in OCI Generative Al?
+- [ ] To manage network security for Al applications
+- [x] To host and serve fine-tuned models for inference ✅
+- [ ] To automatically scale Al compute resources
+- [ ] To store embeddings for Al vector search
+
+#### Your company wants to fine-tune a pre-trained LLM to better respond to customer queries related to travel bookings. What resource is required in OCI for this fine-tuning?
+- [ ] Al Vision Service
+- [x] Dedicated Al Cluster ✅
+- [ ] Model Catalog
+- [ ] Object Storage Bucket
 
 ***

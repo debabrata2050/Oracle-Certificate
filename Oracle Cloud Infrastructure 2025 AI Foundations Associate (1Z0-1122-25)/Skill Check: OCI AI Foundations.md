@@ -109,4 +109,41 @@
 - [x] Enabling the network to learn complex features like edges and shapes ✅
 
 > Hidden layers in neural networks are crucial for character recognition because they enable the network to learn and extract complex features and patterns, such as edges, shapes, and curves, which are essential for recognizing characters.
+
+***
+
+## Gen AI Basics
+
+#### Which statement accurately describes generative Al?
+- [ ] Exclusively trains to predict future data patterns
+- [ ] Focuses on making accurate predictions based on training data.
+- [x] Creates new content without making predictions. ✅
+- [ ] Limits functions to generating only text-based outputs.
+
+#### What is "in-context learning" in the context of large language models (LLMs)?
+- [ ] Modifying the behavior of a pretrained LLM permanently.
+- [x] Providing a few examples of a target task via the input prompt. ✅
+- [ ] Training a model on a diverse range of tasks.
+- [ ] Teaching the model through zero-shot learning.
+
+#### Fine-tuning is unnecessary for Large Language Models (LLMs) if your application does not involve which specific aspect?
+- [ ] Efficiency & resource utilization
+- [ ] Bias mitigation
+- [x] Task specific adaptation ✅
+- [ ] Domain vocabulary
+
+#### Sequence models are used to solve problems involving sequentially ordered data points or events. Which is NOT the best use case for sequence models?
+- [ ] Time series analysis and forecasting
+- [x] Image classification and object recognition ✅
+- [ ] Speech recognition and language translation
+- [ ] Natural language processing tasks like sentiment analysis
+
+#### What aspect of Large Language Models significantly impacts their capabilities, performance, and resource requirements?
+- [ ] Number of training iterations performed during model training
+- [ ] Complexity of the programming languages used for model development
+- [x] Model size and parameters, including the number of tokens and weights ✅
+- [ ] Total number of GPUs used for model training
+
+> The size and complexity of a language model, including the number of parameters (weights) and tokens have a profound impact on its capabilities and performance. Larger models with more parameters tend to have a better understanding of language and can generate more coherent and contextually relevant text. Larger models, however, require substantial computational resources, including GPUs and memory, for both training and inference.
+
 ***

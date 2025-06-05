@@ -217,3 +217,33 @@
 - [ ] Object Storage Bucket
 
 ***
+
+## OCI AI Services
+
+#### Which language is NOT supported by the OCl Speech service?
+- [ ] English
+- [ ] Portuguese
+- [ ] Spanish
+- [x] Mandarin ✅
+
+#### Which capability of OCI Vision service uses a bounding box inside an image?
+- [ ] Image Classification
+- [x] Object Detection ✅
+- [ ] Object Repair
+- [ ] Image Recognition
+
+> Object Detection is a computer vision task that involves identifying and locating objects within an image. It not only recognizes the presence of objects but also provides information about their location in the image through the use of bounding boxes. Each bounding box represents the position and size of a detected object within the image.
+
+#### Which OCl Al service is used to extract tabular content from documents?
+- [ ] Speech
+- [x] Vision ✅
+- [ ] Object Storage
+- [ ] Language
+
+> You can organize and extract text and structure from image-based documents and PDFs by calling the Document AI pretrained models with a single request in OCI Vision.
+
+#### Which capability is offered by the OCI Language service?
+- [ ] Speech-to-Text Conversion
+- [ ] Object Detection
+- [ ] Image Recognition
+- [x] Text Sentiment Analysis ✅

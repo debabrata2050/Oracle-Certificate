@@ -1,5 +1,29 @@
 # Oracle Exam 1Z0-1122-25 : Oracle Cloud Infrastructure 2025 AI Foundations Associate Dump
 
+#### Q. Which AI domain can be employed for identifying patterns in images and extract relevant features?
+- [ ] Speech Processing
+- [ ] Anomaly Detection
+- [x] Computer Vision ✅
+- [ ] Natural Language Processing
+
+#### Q. Which statement best describes the relationship between Artificial Intelligence (AI), Machine Learning (ML), and Deep Learning (DL)?
+- [ ] DL is a subset of AI, and ML is a subset of DL.
+- [ ] AI is a subset of DL, which is a subset of ML.
+- [ ] AI, ML, and DL are entirely seperate fields with no overlap.
+- [x] ML is a subset of AI, and DL is a subset of ML. ✅
+
+#### Q. What role do Transformers perform in Large Language Models (LLMs)?
+- [ ] Image recognition tasks in LLMs
+- [x] Provide a mechanism to process sequential data in parallel and capture long-range dependencies. ✅
+- [ ] Manually engineer features in the data before training the model
+- [ ] Limit the ability of LLMs to handle large datasets by imposing strict memory constrains
+
+#### Q. Emma works for a customer feedback analysis team and needs to extract insights from thousands of online product reviews. She wants to determine if customers express positive or negative opinions about different aspects, such as price, quality, and customer service. Which feature of OCI language is helpful for her?
+- [ ] Named entity recognition
+- [ ] Language detection
+- [ ] Key phrase extraction
+- [x] Sentiment analysis ✅
+
 #### Q. You are training a deep learning model to classify images. What is the primary function of the convolutional layer? 
 - [x] To detect specific features in the input image ✅
 - [ ] To classify the input image 

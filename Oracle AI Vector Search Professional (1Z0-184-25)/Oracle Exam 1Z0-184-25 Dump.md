@@ -1,12 +1,10 @@
 # Oracle Exam 1Z0-184-25 : Oracle AI Vector Search Professional Dump
 
 #### Q. Which statement best describes the core functionality and benefit of Retrieval Augmented Generation (RAG) in Oracle Database 23ai?
-- [ ] It primarily aims to optimize the performance and efficiency of LLMs by using advanced data retrieval techniques, thus minimizing response times, and reducing
-- [ ] computational overhead.
+- [ ] It primarily aims to optimize the performance and efficiency of LLMs by using advanced data retrieval techniques, thus minimizing response times, and reducing computational overhead.
 - [ ] It enables Large Language Models (LLMs) to access and process real-time data streams from diverse sources to generate the most up-to-date insights.
 - [x] It empowers LLMs to interact with private enterprise data stored within the database, leading to more context-aware and precise responses to user queries. ✅
-- [ ] It allows users to train their own specialized LLMs directly within the Oracle Database environment using their internal data, thereby reducing the reliance on external Al
-- [ ] providers.
+- [ ] It allows users to train their own specialized LLMs directly within the Oracle Database environment using their internal data, thereby reducing the reliance on external Al providers.
 
 #### Q. What are the key advantages and considerations of using Retrieval Augmented Generation (RAG) in the context of Oracle Al Vector Search?
 - [ ] It focuses on training specialized LLMs within the database environment for specific tasks, offering greater control over model behavior and data privacy but potentially requiring more development effort.

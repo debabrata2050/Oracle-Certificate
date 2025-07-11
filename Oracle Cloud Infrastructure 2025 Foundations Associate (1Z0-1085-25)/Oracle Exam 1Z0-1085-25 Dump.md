@@ -240,3 +240,44 @@
 - [ ] Only cost management
 - [ ] Only security resolutions
 
+#### Q. Which feature is NOT provided by Oracle Cloud Infrastructure Security Zones?
+- [x] Storing and managing encryption keys and secrets ✅
+- [ ] Automatically enforcing security best practices
+- [ ] Continuous monitoring of security posture
+- [ ] Restricting resource creation based on predefined security policies
+
+#### Q. What is an availability domain in Oracle Cloud Infrastructure?
+- [ ] A localized geographical area
+- [ ] A set of virtual cloud networks
+- [ ] A type of encrypted traffic
+- [x] One or more data centers located within a region ✅
+
+#### Q. What is the primary difference between a public subnet and a private subnet in an OCI VCN?
+- [ ] Private subnets can be created only in a separate region from the VCN.
+- [ ] Public subnets can host only load balancers, whereas private subnets host databases.
+- [x] Public subnets require a /24 CIDR block, whereas private subnets do not. ✅
+- [ ] Public subnets allow resources to have public IP addresses and direct internet access, whereas private subnets do not.
+
+#### Q. Why might you choose to use containers instead of virtual machines?
+- [ ] Containers provide better isolation than virtual machines.
+- [ ] Containers require more resources to run.
+- [x] Containers allow for faster startup time and more efficient resource usage. ✅
+- [ ] Containers are less flexible in terms of resource allocation.
+
+#### Q. What is the recommended best practice for OCI Tenancy Administrators?
+- [ ] Allow all users to manage policies without restrictions.
+- [ ] Use the Tenancy Administrator account for all daily operations.
+- [ ] Avoid creating multiple compartments to simplify resource management.
+- [x] Always enforce Multi-Factor Authentication (MFA) for added security. ✅
+
+#### Q. What is the main purpose of OCI's Data Transfer Service?
+- [ ] Migrating Container Engine (OKE) clusters between regions
+- [ ] Creating multiple copies of objects across different regions automatically
+- [ ] Encrypting database backups in Block Volumes
+- [x] Facilitating offline bulk data transfer to OCI using disks or appliances ✅
+
+#### Q. In Oracle Cloud Infrastructure Block Volume Service, which feature enables you to increase the size of a block volume without any downtime?
+- [x] Online Resizing ✅
+- [ ] Dynamic Volume Resizing
+- [ ] Volume Bursting
+- [ ] Volume Elasticity

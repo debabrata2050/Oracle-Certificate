@@ -813,4 +813,4 @@ Which is true about the result of the SELECT statement?
 - [ ] The inserted row is not returned because the isolation level is READ COMMITTED in S2.
 - [ ] The inserted row is returned because the transaction is auto committed in S2.
 - [ ] The inserted row is returned because the isolation level is REPEATABLE READ in S1.
-- [x] The inserted row is not returned because the transaction still active in S2.
+- [x] The inserted row is not returned because the transaction still active in S2. ✅

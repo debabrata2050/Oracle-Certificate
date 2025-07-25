@@ -634,13 +634,100 @@ ORDER BY c.customer_number;
 ```sql
 SELECT c.firstname, c.lastname, o.order_number
 FROM orders o RIGHT OUTER JOIN customers c ON c.customer_number = o.customer_number
-ORDER BY c.customer _number;
+ORDER BY c.customer_number;
 ```
 
-#### Q. You must write a statement that combines the first _name and last_ name columns from the employees table as "last_name, first _name."  
+#### Q. You must write a statement that combines the first_name and last_name columns from the employees table as "last_name, first_name."  
 Which two statements will do this?
 - [ ] SELECT GROUP_CONCAT (last_name, first_name) FROM employees;
 - [ ] SELECT last_name + ',' + first_name FROM employees;
 - [x] SELECT CONCAT_WS(',', last_name, first_name) FROM employees; ✅
 - [x] SELECT CONCAT (last_ name,',', first _name) FROM employees; ✅
 - [ ] SELECT (last _name, ',', first_name) FROM employees;
+
+#### Q. Examine this statement which you executed and its output:
+```sql
+SELECT ename, esalary, ebonus
+FROM employees;
+```
+```sql
++------------------------+-------------+------------+
+| ename                  | esalary     | ebonus     |
++------------------------+-------------+------------+
+| Duangkaew Piveteau     | 158526.0000 | 23109.0000 |
+| Mary Sluis             | 154070.0000 | 7181.0000  |
+| Patricio Bridgland     | 94771.0000  | 23578.0000 |
+| Eberhardt Terkki       | 91648.0000  | 8346.0000  |
+| Berni Genin            | 113928.0000 | 27998.0000 |
+| Guoxiang Nooteboom     | 94698.0000  | 26954.0000 |
+| Kazuhito Cappelletti   | 71703.0000  | 20777.0000 |
+| Cristinel Bouloucos    | 154424.0000 | 22021.0000 |
+| Kazuhide Peha          | 77013.0000  | NULL       |
+| Lillian Haddadi        | 141791.0000 | NULL       |
+| Mayuko Warwick         | 137916.0000 | NULL       |
++------------------------+-------------+------------+
+```
+You must return the ename and the sum of the esalary and ebonus as etotal_pay for all employees.  
+Which will return the desired result?
+- [x] SELECT ename, (esalary + COALESCE (ebonus, 0.0000)) AS etotal_pay FROM employees; ✅
+- [ ] SELECT ename, (esalary + ebonus) AS etotal_pay FROM employees;
+- [ ] SELECT ename, (esalary + ebonus) AS etotal_pay FROM employees WHERE ebonus IS NOT NULL ;
+- [ ] SELECT ename, SUM(esalary + ebonus) AS etotal_pay FROM employees;
+- [ ] SELECT ename, SUM(esalary + ebonus) AS etotal_pay FROM employees GROUP BY ename;
+
+#### Q. The collection col contains all episodes for all seasons for a TV show.  
+Examine this document which has an example of the details for each episode:
+```json
+{
+"_id": "00005cbee2d10000000000000001",
+"name": "Days Gone Bye",
+"number": 1,
+"season": 1,
+"airdate": "2010-10-31",
+"airtime": "22:00",
+"runtime": 60
+}
+```
+Which query returns all episode names from the first season?
+- [x] SELECT doc->>"$.name" FROM col WHERE doc->>"$.season" = "1"; ✅
+- [ ] SELECT doc-> "$.name" FROM col WHERE doc->"$.season" = "1";
+- [ ] SELECT name FROM col WHERE season = 1;
+- [ ] SELECT "$.name" FROM col WHERE "$.season" = "1";
+
+#### Q. Examine this statement which produces one row:
+```sql
+mysql> SELECT JSON_PRETTY (product) FROM fshop;
+{"name": "orange",
+"varieties":
+[
+    {"VarietyName":"clementine",
+    "Origin": ["PA", "BU"]},
+    {"VarietyName": "tangerine",
+    "Origin": ["CH", "JP"]}
+]
+}
+```
+Now, examine this statement:
+```sql
+SELECT JSON_ TYPE (product-> "S.varieties")
+FROM fshop;
+```
+Which output will be returned?
+- [ ] STRING
+- [ ] ARRAY
+- [ ] OBJECT
+- [x] NULL ✅
+- [ ] BLOB
+
+33. Examine this statement and output:
+```sql
+mysql> CREATE TABLE tab (i int NOT NULL) ENGINE=csv;
+ERROR 1 (HY000): Can't create/write to file './dbo/tab_402.sdi' (OS errno 13 Permission denied)
+```
+What causes the error?
+- [ ] The engine is disabled.
+- [ ] The database server is running in read-only mode.
+- [ ] The SET LOCAL_ INFILE option has not been enabled.
+- [ ] The database user does not have sufficient privilege.
+- [ ] The database client process does not have sufficient privilege.
+- [x] The database server process does not have sufficient privilege. ✅

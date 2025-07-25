@@ -719,7 +719,7 @@ Which output will be returned?
 - [x] NULL ✅
 - [ ] BLOB
 
-33. Examine this statement and output:
+#### Q. Examine this statement and output:
 ```sql
 mysql> CREATE TABLE tab (i int NOT NULL) ENGINE=csv;
 ERROR 1 (HY000): Can't create/write to file './dbo/tab_402.sdi' (OS errno 13 Permission denied)
@@ -731,3 +731,86 @@ What causes the error?
 - [ ] The database user does not have sufficient privilege.
 - [ ] The database client process does not have sufficient privilege.
 - [x] The database server process does not have sufficient privilege. ✅
+
+#### Q. Which statement is true about the SHOW ERRORS command?
+- [x] It cannot display information for more than max_error_count server system variable setting. ✅
+- [ ] It displays similar diagnostics results as GET DIAGNOSTICS.
+- [ ] It displays errors that have occurred since the start time of the current session.
+- [ ] It displays errors that have occurred since the server last restarted.
+
+#### Q. Which statement is true?
+- [ ] SHOW WARNINGS displays errors, warnings, and notes.
+- [x] SHOW COUNT(*) WARNINGS displays the number of warnings only. ✅
+- [ ] SHOW WARNINGS displays warnings from DDL statements only.
+- [ ] SHOW WARNINGS displays the same result as an EXPLAIN command.
+- [ ] SHOW COUNT(*) WARNINGS and SELECT @@warning_count display the same result
+
+#### Q. Which change will prevent negative ages to be inserted into the people table?
+- [ ] 
+```sql
+ALTER TABLE people ADD COLUMN valid_age=ABS(check_age) GENERATED ALWAYS;
+```
+- [ ] 
+```sql
+DELIMITER //
+CREATE TRIGGER agecheck AFTER INSERT ON people FOR EACH ROW IF NEW.age < 0 THEN SET NEW.age = 0; END IF;//
+DELIMITER;
+```
+- [x] 
+```sql
+DELIMITER //
+CREATE TRIGGER agecheck BEFORE INSERT ON people FOR EACH ROW IF NEW.age < 0 THEN SET NEW.age = 0; END IF;//
+DELIMITER;
+```
+- [x] ✅
+```sql
+ALTER TABLE people ADD CONSTRAINT check_age CHECK (ABS(age)>=0);
+```
+
+#### Q. Examine these commands which execute successfully:
+```sql
+mysql> CREATE TABLE income (acct_num INT, amount DECIMAL(10,2));
+mysql> CREATE TRIGGER subtotal BEFORE INSERT ON income
+        FOR EACH ROW SET @subtotal = @subtotal + NEW.amount;
+```
+Which is true for the income table?
+- [ ] The trigger activates after any row in the table has been updated.
+- [ ] The trigger body SET causes trigger activation.
+- [ ] The trigger activates after any row has been inserted into the table.
+- [x] Execution of an INSERT statement causes the trigger to activate. ✅
+
+#### Q. Examine these statements issued from Session 1 which execute successfully:
+```sql
+Session 1> SET transaction isolation 'SERIALIZABLE';
+Session 1> START TRANSACTION;
+Session 1> SELECT FROM world.city WHERE name='Roma' AND CountryCode='ITA';
+```
+Now, examine this statement issued from Session 2:
+```sql
+Session 2> UPDATE world.city SET population=2660000 WHERE name='Roma' AND CountryCode='ITA';
+```
+What is the outcome of the UPDATE statement in Session 2?
+- [ ] The transaction in Session 1 will be rolled back automatically.
+- [x] The staternent will wait for the transaction in Session 1 to finish. ✅
+- [ ] The row will be updated immediately.
+- [ ] A deadlock will occur.
+
+#### Q. Examine these commands which execute successfully in the sequence shown in Sessions S1 and S2:
+```sql
+S1> SET AUTOCOMMIT-ON;
+S1> SET SESSION TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+S1> SELECT * FROM emp;
+    S2> SET AUTOCOMMIT-ON;
+    S2> SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED;
+    S2> START TRANSACTION;
+    S2> INSERT INTO emp values (103, 'Ring', 50000, 30);
+```
+Now, examine this statement that execute successfully in S1:
+```sql
+S1> SELECT * FROM emp:
+```
+Which is true about the result of the SELECT statement?
+- [ ] The inserted row is not returned because the isolation level is READ COMMITTED in S2.
+- [ ] The inserted row is returned because the transaction is auto committed in S2.
+- [ ] The inserted row is returned because the isolation level is REPEATABLE READ in S1.
+- [x] The inserted row is not returned because the transaction still active in S2.

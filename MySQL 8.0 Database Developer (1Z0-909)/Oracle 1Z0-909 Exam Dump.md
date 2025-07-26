@@ -978,7 +978,7 @@ session 3> SELECT * FROM test.tl;
 session 4> INSERT INTO test.t1 VALUES (0, 'a', 'b');
 session 5> SELECT * FROM t1 FOR UPDATE NOWAIT;
 ```
-How many of them will complete while Session O is still active?
+How many of them will complete while Session 0 is still active?
 - [x] 2 ✅
 - [ ] 1
 - [ ] 3
@@ -1143,3 +1143,93 @@ Which is the most efficient WHERE clause that returns all customers born in the 
 - [ ] They can be nested.
 - [ ] They retain their resources even if the connection to the database is lost.
 - [x] They can be created and executed within a stored routine. ✅
+
+#### Q. What are three general advantages to prepared statements?
+- [ ] They allow queries to run in parallel.
+- [ ] They cause the server to parse the statement each time it is executed.
+- [x] They reduce network traffic between client and server. ✅
+- [x] They reduce CPU overhead. ✅
+- [ ] They cache data before sending it to the MySQL Server.
+- [ ] They take advantage of dynamic cursor declarations.
+- [x] They allow for dynamic SQL in stored routines. ✅
+
+#### Q. Examine these statements which execute successfully.
+```sql
+SET SQL_MODE = '';
+SELECT 2 * -3 AS a, 2 * -3 AS b, CAST(2 * -3 AS UNSIGNED) AS c;
+```
+What is the result?
+- [ ] 
+```sql
++-----+-----+-----+
+| a   | b   | c   |
++-----+-----+-----+
+| -6  | -6  | -6  |
++-----+-----+-----+
+```
+- [ ] 
+```sql
++-----+--------+-----+
+| a   | b      | c   |
++-----+--------+-----+
+| -6  | NULL   |  6  |
++-----+--------+-----+
+```
+- [x] ✅
+```sql
++-----+-----+----------------------+
+| a   | b   | c                    |
++-----+-----+----------------------+
+| -6  | -6  | 18446744073709551610 |
++-----+-----+----------------------+
+```
+- [ ] 
+```sql
++-----+-----+-----+
+| a   | b   | c   |
++-----+-----+-----+
+| -6  | -6  |  6  |
++-----+-----+-----+
+```
+- [ ] 
+```sql
++-----+-----+-----+
+| a   | b   | c   |
++-----+-----+-----+
+| -6  |  0  |  6  |
++-----+-----+-----+
+```
+
+#### Q. Examine this statement and output:
+```sql
+SELECT * FROM exam_result;
+```
+```sql
++-----+--------+
+| sid | score  |
++-----+--------+
+|  1  | 75.235 |
+|  2  | 75.234 |
+|  3  | 75.253 |
+|  4  | 75.257 |
++-----+--------+
+```
+Now, examine these desired output values:
+
+```sql
++-----+--------+
+| sid | score  |
++-----+--------+
+|  1  | 75.2   |
+|  2  | 75.2   |
+|  3  | 75.3   |
+|  4  | 75.3   |
++-----+--------+
+```
+Which statement updates the table data as required?
+- [ ] UPDATE exam_result SET score = CEIL(TRUNCATE(score, 1));
+- [ ] UPDATE exam_result SET score = CEIL(ROUND(score, 1));
+- [ ] UPDATE exam_result SET score = TRUNCATE(score, 1);
+- [ ] UPDATE exam_result SET score = ROUND(CEIL(score), 1);
+- [ ] UPDATE exam_result SET score = TRUNCATE(CEIL(score), 1);
+- [x] UPDATE exam_result SET score = ROUND ✅

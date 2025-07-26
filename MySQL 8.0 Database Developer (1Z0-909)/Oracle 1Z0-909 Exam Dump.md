@@ -814,3 +814,332 @@ Which is true about the result of the SELECT statement?
 - [ ] The inserted row is returned because the transaction is auto committed in S2.
 - [ ] The inserted row is returned because the isolation level is REPEATABLE READ in S1.
 - [x] The inserted row is not returned because the transaction still active in S2. ✅
+
+#### Q. Examine this statement and output:
+```sql
+mysql> SELECT @@GLOBAL.sql_mode, @@SESSION.sql_mode, @@sql_mode\G
+******** 1. row ***********
+@@GLOBAL.sql_mode: STRICT_TRANS_TABLES, NO_ENGINE_SUBSTITUTION
+@@SESSION.sql mode: STRICT_TRANS_TABLES, NO_ENGINE_SUBSTITUTION
+    @@sql_mode: STRICT_TRANS_TABLES, NO_ENGINE_SUBSTITUTION
+1 row in set (0.00 sec)
+```
+Now examine this statement which executes successfully:
+```sql
+SET SQL_MODE=TRADITIONAL;
+```
+Which statement is true?
+- [ ] The SQL mode is changed for all sessions using the current account to TRADITIONAL.
+- [ ] The global SQL mode is changed to TRADITIONAL.
+- [x] The session SQL mode is changed to TRADITIONAL. ✅
+- [ ] No change is made unless the account has the CONNECTION ADMIN privilege.
+
+#### Q. Examine this CRUD operation:
+```js
+JS> col.find()
+{
+"id": "00005e8585eb0000000000000009",
+"name": "fred"
+}
+1 document in set (0.0003 sec)
+```
+Which two SQL statements are valid?
+- [x] ALTER TABLE col ADD COLUMN result INT GENERATED ALWAYS as (doc->>"$.result") VIRTUAL NOT NULL; ✅
+- [ ] ALTER TABLE col ADD COLUMN result INT GENERATED ALWAYS as (doc->>"$.result") STORED NOT NULL;
+- [ ] ALTER TABLE col ADD COLUMN result INT GENERATED ALWAYS as (doc->>"$.result") STORED DEFAULT '0';
+- [ ] ALTER TABLE col ADD COLUMN result INT GENERATED ALWAYS as (doc->>"$.result") STORED;
+- [ ] ALTER TABLE col ADD COLUMN result INT GENERATED ALWAYS as (doc->>"$.result") VIRTUAL DEFAULT 0;
+
+#### Q. You must enforce data integrity for data inserted in a JSON column.  
+Which statement successfully creates a CONSTRAINT in a JSON column?
+- [x] CREATE TABLE fshop (product JSON CHECK (JSON_VALID (product))); ✅
+- [ ] CREATE TABLE fshop (product JSON, f INT GENERATED ALWAYS AS (product-> "$.id"));
+- [ ] CREATE TABLE fshop (id INT NOT NULL AUTO INCREMENT, product JSON, PRIMARY KEY(id)) ENGINE=InnoDB;
+- [ ] CREATE TABLE fshop (id INT NOT NULL AUTO INCREMENT, product JSON, CHECK (id>0)) ENGINE=InnoDB;
+
+#### Q. Examine the layout of the employees table.
+```sql
+CREATE TABLE 'employees' (
+'emp_no' INT NOT NULL,
+'birth_date' DATE NOT NULL,
+'first_name' VARCHAR(14) NOT NULL,
+'last name' VARCHAR(16) NOT NULL,
+'network_name' VARCHAR(15) NOT NULL,
+'gender' ENUM('M', 'F') NOT NULL,
+'hire_date' DATE NOT NULL,
+PRIMARY KEY ('emp_no'),
+UNIQUE KEY 'network name' ('network name'),
+KEY 'hire_date' ('hire_date')
+) ENGINE=InnODB DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+```
+Which column in the employees table represents the table's clustered index?
+- [ ] hire_date
+- [x] emp_no ✅
+- [ ] network_name
+- [ ] gender
+
+#### Q. Examine these statements which execute successfully:
+```sql
+CREATE TABLE `photos` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `title` VARCHAR(255) DEFAULT NULL,
+  `description` TEXT,
+  `created_at` DATETIME DEFAULT NULL,
+  `updated_at` DATETIME DEFAULT NULL,
+  `file_name` VARCHAR(255) DEFAULT NULL,
+  `privacy` CHAR(1) NOT NULL DEFAULT 'A',
+  `rating` INT DEFAULT 0,
+  `valid_upload` TINYINT(1) DEFAULT 1,
+  `relevant` TINYINT(1) DEFAULT 0,
+  `album_id` INT DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1734438 DEFAULT CHARSET=utf8;
+```
+```sql
+SELECT title,
+  created_at,
+  updated_at
+FROM photos ph
+INNER JOIN 
+  photo_data pd ON pd.album_id = ph.album_id
+WHERE ph.rating IN (12)
+  AND pd.owner_id IN ('S')
+  AND ph.privacy = 'S'
+  AND pd.hidden = '0'
+  AND pd.valid_upload = 1
+  AND pd.url IS NOT NULL
+GROUP BY ph.id
+HAVING COUNT(ph.id) > 2
+ORDER BY ph.id DESC
+LIMIT 12;
+```
+Which additional index on table photos will improve performance for the query?
+- [ ] ('title', 'created_at', 'updated_at')
+- [x] ('album_id', 'privacy', 'rating') ✅
+- [ ] ('valid_upload')
+- [ ] ('title', 'id')
+
+#### Q. Examine the appointments table definition which contains one million rows:
+```sql
+CREATE TABLE `appointments` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `attendant_id` INT(11) NOT NULL,
+  `attendant_session_id` INT(11) NOT NULL,
+  `start` DATETIME NOT NULL,
+  `end` DATETIME NOT NULL,
+  `date` DATE NOT NULL,
+  `created_by` VARCHAR(20) NOT NULL,
+  `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
+  `payment` INT(11) NOT NULL DEFAULT 0,
+  `credit` INT(11) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+```
+Now, examine this statement which executes successfully.
+```sql
+SELECT attendant_id,
+  payment,
+  credit
+FROM appointments
+WHERE attendant_session_id = 510
+  AND created_by = 'jsmith';
+```
+Which statement will improve query performance?
+- [ ] ALTER TABLE appointments add index IX_1 (credit, payment);
+- [ ] ALTER TABLE appointments add index IX_4 (attendant_id, payment, credit);
+- [ ] ALTER TABLE appointments add index IX_3 (attendant_id, created_by);
+- [x] ALTER TABLE appointments add index IX_2 (attendant_session_ id, created_by); ✅
+
+#### Q. Examine this sequence of statements issued by two concurrent sessions within three seconds of each other:
+```sql
+Session 1> SELECT GET_LOCK(`mylock1`, 70);
+    Session 2> SELECT GET_LOCK(`mylock2`,70);
+    Session 2> SELECT GET_LOCK(`mylock1`,70);
+Session 1> SELECT GET_LOCK(`mylock2`,70);
+```
+What will happen in Session 1 after the last statement is executed?
+- [ ] The lock will be immediately granted
+- [ ] A deadlock error is returned.
+- [ ] A timeout will be returned after the wait timeout interval has expired.
+- [x] An error will be returned after 70 seconds. ✅
+
+#### Q. Examine this statement that executes successfully in an interactive session:
+```sql
+session 0> LOCK TABLES test.tl READ,
+test.t2 WRITE;
+```
+The user running this session now goes to lunch for an hour.  
+Now, examine these statements executed independently in separate sessions while Session 0 is still active:
+```sql
+session 1> SELECT * FROM test.t2;
+session 2> SELECT * FROM test.t2 FOR UPDATE NOWAIT;
+session 3> SELECT * FROM test.tl;
+session 4> INSERT INTO test.t1 VALUES (0, 'a', 'b');
+session 5> SELECT * FROM t1 FOR UPDATE NOWAIT;
+```
+How many of them will complete while Session O is still active?
+- [x] 2 ✅
+- [ ] 1
+- [ ] 3
+- [ ] 4
+- [ ] 0
+- [ ] 5
+
+#### Q. AUTOCOMMIT mode is enabled for a session.  
+Which is true?
+- [ ] The BEGIN statement can be used to start multi statement transaction and it will disable the AUTOCOMMIT mode permanently for the session.
+- [ ] The current session AUTOCOMMIT mode can be disabled using SET GLOBAL.
+- [x] Every SQL statement executes as a transaction. ✅
+- [ ] Statements that fail must be rolled back explicitly.
+- [ ] The START TRANSACTION statement is unsupported in this mode.
+
+#### Q. Examine these statements issued from Session 1 which execute successfully:
+```sql
+Session 1>
+SET autocommit=1;
+SELECT * FROM band FOR UPDATE;
+```
+Session 1 remains idle while another user starts Session 2.
+Now, examine these statements issued from Session 2 which execute successfully:
+```sql
+Session 2>
+BEGIN;
+UPDATE band SET song-CONCAT("Here Comes the", song) WHERE song LIKE "%Sun";
+```
+Which two are true?
+- [ ] Session 1 does not block Session 2.
+- [ ] Session 1 takes a shared lock on all the rows in the band table.
+- [x] Statements in Session 2 are committed. ✅
+- [ ] Session 2 does not start a transaction.
+- [x] Session 1 must commit before the UPDATE in Session 2 can complete. ✅
+- [ ] Session 2 takes an exclusive lock on all the rows in the band table.
+
+#### Q. A program executes a START TRANSACTION statement in AUTOCOMMIT mode.  
+Which two are true?
+- [ ] All changes to any table rows commit immediately.
+- [x] AUTOCOMMIT mode is enabled again after executing a ROLLBACK statement. ✅
+- [x] It temporarily disables AUTOCOMMIT mode. ✅
+- [ ] Every SQL statement executes as a transaction.
+- [ ] AUTOCOMMIT mode is enabled again only by executing a COMMIT statement
+
+#### Q. Examine these MySQL Shell statements:
+```js
+mysql-js> nc = db.createCollection('person');
+mysql-js> nc.add({name: "Kate", city: "Paris"});
+mysql-js> nc.add({name: "Bill", city: "London"});
+mysql-js> nc.add({name: "John", place: "New York"});
+mysql-js> nc.add({name: "Mary", place: "Boston", country: "USA"});
+```
+What is true about the attempts to add documents to the collection?
+- [x] All documents are added without any error or warning. ✅
+- [ ] All documents are added and cause a warning.
+- [ ] First two documents are added, then mismatched field names cause an error.
+- [ ] First three documents are added, then different number of fields cause an error
+
+#### Q. Examine this SQL statement:
+```sql
+SELECT Name, Population FROM country
+WHERE Name LIKE 'United%'
+LIMIT 5;
+```
+Which two statements provide equivalent results using the X DevAPI protocol?
+- [ ] db.country.select([Name LIKE "United%"', 'Population>-0']).limit(5)
+- [ ] db.country.fields (['Name', 'Population']) select('limit=5').where(Name LIKE "United%")
+- [ ] db.country.fields(['Name', 'Population']).where('Name LIKE "United%"').select().limit(5)
+- [x] db.country.select(['Name', 'Population']).limit(5).where('Name LIKE "United%"') ✅
+- [x] db.country.select(['Name', 'Population']).where('Name LIKE:param').bind('param', 'United%').limit(5) ✅
+
+#### Q. Select three languages for which Oracle MySQL publishes drivers.
+- [x] Node.js ✅
+- [x] Python ✅
+- [ ] Lua
+- [ ] Erlang
+- [ ] Ruby
+- [x] Java ✅
+- [ ] Go
+
+#### Q. Which is an advantage of the PHP Data Objects (PDO) PDO_MySQL module compared with other interfaces?
+- [x] PDO is database agnostic which makes porting to other databases potentially easier. ✅
+- [ ] PDO supports more MySQL features than mysqli.
+- [ ] PDO is designed to let you treat database tables exclusively as objects.
+- [ ] PDO includes support for the X DevAPI API.
+
+#### Q. Examine the output:
+```sql
+*************************** 1. row ***************************
+EXPLAIN: {
+  "query_block": {
+    "select_id": 1,
+    "cost_info": {
+      "query_cost": "0.45"
+    },
+    "table": {
+      "table_name": "country",
+      "access_type": "ALL",
+      "rows_examined_per_scan": 2,
+      "rows_produced_per_join": 2,
+      "filtered": "100.00",
+      "cost_info": {
+        "read_cost": "0.25",
+        "eval_cost": "0.20",
+        "prefix_cost": "0.45",
+        "data_read_per_join": "224"
+      },
+      "used_columns": [
+        "code",
+        "Name",
+        "Continent",
+        "LanguageId"
+      ]
+    }
+  }
+}
+1 row in set, 1 warning (0.00 sec)
+```
+Which EXPLAIN command will obtain the output?
+- [x] EXPLAIN FORMAT=JSON ✅
+- [ ] EXPLAIN FORMAT=TRADITIONAL
+- [ ] EXPLAIN FORMAT=TREE
+- [ ] EXPLAIN PARTITIONS
+- [ ] EXPLAIN ANALYZE
+
+#### Q. Which two statements are valid for using with a query to obtain its query execution plan?
+- [ ] ANALYZE QUERY FOR
+- [ ] SHOW QUERY PLAN
+- [x] EXPLAIN EXTENDED ✅
+- [x] EXPLAIN ✅
+- [ ] DESCRIBE
+
+#### Q. Which three evaluate to a temporal value?
+- [x] SYSDATE()-1 ✅
+- [ ] MONTH('01-05-2020')
+- [x] SYSDATE() ✅
+- [ ] TO_DAYS ('2020-05-01')
+- [x] '2020-05-01' - INTERVAL 1 DAY ✅
+- [ ] '2020-05-01'
+
+#### Q. A table has these attributes:  
+1. It has more than 1 million rows.  
+2. It has a date_of_birth column defined with the DATETIME data type.  
+3. The date_of_birth column is indexed.  
+Which is the most efficient WHERE clause that returns all customers born in the year 2000?
+- [ ] WHERE YEAR(date_of_birth) = 2000
+- [x] WHERE date_of_birth >= '2000-01-01' AND date_of_birth < '2001-01-01' ✅
+- [ ] WHERE date_of_birth BETWEEN '2000-01-01' AND '2001-01-01'
+- [ ] WHERE date_of_birth BETWEEN '2000-01-01' AND '2000-12-31'
+- [ ] CHECK date_of_birth LIKE '2000%'
+
+#### Q. Which two are true about MySQL Document Store?
+- [x] It helps to store data items in a schema-less key-value store. ✅
+- [ ] It can store documents greater than 4 GB.
+- [ ] It depends heavily on strictly typed data.
+- [x] It allows one to bypass the SQL layer of the server. ✅
+- [ ] There is no access to relational tables
+
+#### Q. Which two are true about PREPARE statements?
+- [ ] They are accessible in other active sessions.
+- [x] They can be created with the same name as an existing prepared statement in the same session. ✅
+- [ ] They can be nested.
+- [ ] They retain their resources even if the connection to the database is lost.
+- [x] They can be created and executed within a stored routine. ✅

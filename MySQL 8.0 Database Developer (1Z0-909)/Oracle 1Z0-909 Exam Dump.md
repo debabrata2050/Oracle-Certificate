@@ -1233,3 +1233,733 @@ Which statement updates the table data as required?
 - [ ] UPDATE exam_result SET score = ROUND(CEIL(score), 1);
 - [ ] UPDATE exam_result SET score = TRUNCATE(CEIL(score), 1);
 - [x] UPDATE exam_result SET score = ROUND ✅
+
+#### Q. You need to accurately store these values in a column:
+12325.1251717337  
+6212  
+551.124111  
+Which data type will store the values without loss of precision?
+- [ ] MEDIUMINT
+- [x] DECIMAL ✅
+- [ ] FLOAT
+- [ ] DOUBLE
+
+#### Q. Examine this statement and output:
+```sql
+SELECT * FROM fshop;
+```
+```sql
++-------------------------------------------------------------------------------------------------+
+| product                                                                                         |
++-------------------------------------------------------------------------------------------------+
+| {"name": "apple", "varieties": [{"Origin": ["AF", "BY"], "VarietyName": "Gala"},                |
+| {"Origin":["PT", "ES"], "VarietyName": "RED"}, {"Origin": ["FR", "UK"], "VarietyName": "Yel"},  |
+| {"Origin":["IT", "HG"], "VarietyName": "Jon"}]}                                                 |
++-------------------------------------------------------------------------------------------------+
+```
+You execute this statement:
+```sql
+SELECT JSON_SEARCH(product, 'one', 'IT') FROM fshop;
+```
+What is the output?
+- [x] "$.varieties[3].Origin[0]" ✅
+- [ ] "$.varieties[4].Origin[1]"
+- [ ] product->"$.varieties[4].Origin[1]"
+- [ ] product->"$.varieties[3].Origin[0]"
+
+#### Q. Examine this statement which executes successfully:
+```sql
+Set @j = (select product-> '$' from fshop);
+```
+Now, examine the content of `@j`.
+```json
+{"name": "apple", "varieties": [{"Origin": ["AF", "BY"], "VarietyName": "Gala"}, {"Origin": ["PT", "ES"], "VarietyName": "RED"}, {"Origin": ["FR", "UK"], "VarietyName": "Yel"}, {"Origin": ["IT", "HG"], "VarietynameName":"Jon"}]}
+```
+Then, examine this partial output:
+```sql
++---------------+
+| ["name","varieties"] |
++---------------+
+```
+Which two will produce this result?
+- [ ] SELECT JSON_KEYS(@j, '$[.*]');
+- [ ] SELECT JSON_KEYS(@j, '$[*]');
+- [x] SELECT JSON_KEYS(@j); ✅
+- [x] SELECT JSON_KEYS(@j, '$'); ✅
+- [ ] SELECT JSON_KEYS(@j, '$.product');
+
+#### Q. Which two statements are true regarding parameter binding in CRUD operations?
+- [x] Binding enables placeholders in statements which are executed with applied values. ✅
+- [x] Binding can help avoid SQL injection attacks. ✅
+- [ ] Binding reduces the overhead of aggregating large data sets.
+- [ ] Binding is required to retrieve data from multiple tables.
+- [ ] Binding improves the efficiency of parallel processing and generation of large data sets.
+
+#### Q. Examine this statement and output:
+```sql
+mysql> DROP TABLE t1;
+ERROR 1051 (42S02): Unknown table 'dbl.t1'
+```
+Which will provide the same level of detail when the error is encountered within a stored routine?
+- [ ] 
+```sql
+DECLARE EXIT HANDLER FOR SQLEXCEPTION
+BEGIN
+  GET DIAGNOSTICS CONDITION 1 @sqlstate RETURNED_SQLSTATE, @num = NUMBER;
+  SELECT @sqlstate;
+END;
+```
+- [x] ✅
+```sql
+DECLARE EXIT HANDLER FOR SQLEXCEPTION
+BEGIN
+  GET DIAGNOSTICS CONDITION 1 @sqlstate = RETURNED_SQLSTATE, @errno = MYSQL_ERRNO, @text = MESSAGE_TEXT;
+  SET @full_error = CONCAT("ERROR", @errno," (", @sqlstate, "): ", @text);
+  SELECT @full_error;
+END;
+```
+- [ ] 
+```sql
+DECLARE EXIT HANDLER FOR SQLEXCEPTION
+BEGIN
+  GET DIAGNOSTICS CONDITION 1 @sqlstate = RETURNED_SQLSTATE, @errno MYSQL_ERRNO, @num = NUMBER;
+  SET @full_error = CONCAT("ERROR", @errno," (", @sqlstate, "): ", @num);
+  SELECT @full_error;
+END;
+```
+- [ ] 
+```sql
+DECLARE EXIT HANDLER FOR SQLEXCEPTION
+BEGIN
+  GET DIAGNOSTICS CONDITION 1 @num = NUMBER, @errno = MYSQL_ERRNO, @text = MESSAGE_TEXT;
+  SET @full_error = CONCAT("ERROR", @errno," (", @num, "): ", @text);
+  SELECT @full_error;
+END;
+```
+
+#### Q. Which two commands display information to troubleshoot a SQL statement that does not execute as expected?
+- [x] SHOW WARNINGS; ✅
+- [ ] SHOW MASTER STATUS;
+- [x] GET DIAGNOSTICS CONDITION 1 @pl = RETURNED_SQLSTATE, @p2 = MESSAGE_TEXT; ✅
+- [ ] SELECT * FROM INFORMATION SCHEMA EVENTS;
+- [ ] SELECT * FROM sys.user_summary;
+
+### Q. Examine this statement which has executed successfully:
+```sql
+CREATE TABLE `film_text` (
+  `film_id` smallint NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `description` text,
+  PRIMARY KEY (`film_id`),
+  FULLTEXT KEY `description_idx` (`description`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+```
+film_text contains millions of rows.  
+Now, examine this statement:
+```sql
+SELECT title
+FROM film_text
+WHERE description RLIKE "Scientist";
+```
+Which statement is true?
+- [ ] Execution performance can be improved by using LIKE instead of RLIKE.
+- [ ] The statement takes advantage of index description_idx.
+- [ ] Execution performance can be improved by using a composite index with column description as the leftmost prefix.
+- [ ] Execution performance can be improved by adding an index on column description.
+- [x] No index will improve statement performance. ✅
+
+### Q. Examine this command which executes successfully.
+
+```shell
+mysqlsh --host=localhost --user=root -p
+```
+Now, examine this command inside MySQL Shell:
+```sql
+localhost:33060 JS> session
+```
+What is the result?
+- [x] `<Session:root@localhost:3306>` ✅
+- [ ] An error is returned because session is not a valid SQL statement.
+- [ ] `<ClassicSession:root@localhost:33060>`
+- [ ] `<Session:root@localhost:33060>`
+- [ ] An error is returned because no active session object has yet been created.
+
+### Q. Which three statements are true about configuring/setting SQL mode?
+- [ ] Default SQL modes for each user can be specified with an ALTER USER command.
+- [ ] Changes to SQL mode run time variables made with SET PERSIST will last for the duration of the current session.
+- [x] All users can change their session's SQL Modes. ✅
+- [x] Changing global SQL runtime modes requires SYSTEM_VARIABLE_ADMIN privilege. ✅
+- [x] New sessions inherit the current global value. ✅
+- [ ] SQL modes are ignored if you are not using transactions.
+- [ ] Changing SQL mode can only be done once per session and must be the first statement in a new session.
+
+### Q. Examine these commands and output:
+```sql
+mysql> DESC hr.emp;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| id     | int(11)     | NO   | PRI | NULL    |       |
+| name   | varchar(25) | YES  |     | NULL    |       |
+| salary | int(11)     | YES  |     | NULL    |       |
+| email  | varchar(25) | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> CREATE VIEW hr.emp_vul AS
+    -> SELECT name, salary
+    -> FROM hr.emp;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> DROP TABLE hr.emp;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> CREATE TABLE hr.emp (
+    id INT PRIMARY KEY,
+    name VARCHAR(25),
+    salary int,
+    email VARCHAR(25) NOT NULL
+);
+Query OK, 0 rows affected (0.04 sec)
+```
+Now, examine this command:
+```sql
+mysql> CREATE VIEW hr.emp_vul AS
+    -> SELECT name, salary
+    -> FROM hr.emp;
+```
+Which is true?
+- [ ] It returns an error because the CREATE TABLE statement automatically recreated the view.
+- [x] A new view is created because the previous was dropped on execution of the DROP TABLE statement. ✅
+- [ ] It returns an error because the DROP TABLE statement did not drop the view.
+- [ ] Existing emp_vul is dropped and a new emp_vul is created with the new definition.
+
+### Q. Examine these commands and output:
+```sql
+mysql> DESC employees;
++----------+--------------+------+-----+---------+-------+
+| Field    | Type         | Null | Key | Default | Extra |
++----------+--------------+------+-----+---------+-------+
+| id       | int(11)      | NO   | PRI | NULL    |       |
+| lastname | varchar(255) | NO   |     | NULL    |       |
+| salary   | int(11)      | YES  |     | NULL    |       |
+| email    | varchar(255) | NO   |     | NULL    |       |
++----------+--------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> CREATE VIEW emp_vu AS
+    -> SELECT id, salary
+    -> FROM employees;
+Query OK, 0 rows affected (0.00 sec)
+```
+Now, examine this statement:
+```sql
+mysql> INSERT INTO emp_vu
+    -> VALUES (104, 17000);
+```
+Which is true about the execution of the INSERT statement?
+- [x] It returns an error. ✅
+- [ ] It inserts a new row in the base table only.
+- [ ] It inserts a row in the view and base table.
+- [ ] It inserts a new row in the view only.
+
+### Q. Examine these statements which execute successfully:
+```sql
+CREATE TABLE `band` (
+  `song` varchar(50) NOT NULL,
+  `year` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai;
+
+SELECT * FROM band;
+
++---------------------------+-------+
+| song                      | year  |
++---------------------------+-------+
+| Come Together             | 1969  |
+| The Long and Winding Road | 1970  |
+| The Fool on the Hill      | 1967  |
+| Hey Jude                  | 1968  |
+| Here Comes the Sun        | 1969  |
+| Love Me Do                | 1963  |
++---------------------------+-------+
+```
+Now, examine this desired output:
+```sql
++----------------------+-------+
+| song                 | year  |
++----------------------+-------+
+| The Fool on the Hill | 1967  |
++----------------------+-------+
+```
+Which query will produce the desired output?
+- [x] ✅
+```sql
+SELECT * FROM band
+WHERE song RLIKE 'the' COLLATE utf8mb4_0900_as_cs
+AND song RLIKE '^the' COLLATE utf8mb4_0900_ai_ci;
+```
+- [x] ✅
+```sql
+SELECT * FROM band
+WHERE song RLIKE 'the'
+AND song RLIKE '^the';
+```
+- [ ] 
+```sql
+SELECT * FROM band
+WHERE song RLIKE '^the'
+AND SUBSTRING(song, 4) RLIKE "the" COLLATE utf8mb4_0900_as_cs;
+```
+- [ ] 
+```sql
+SELECT * FROM band
+WHERE song RLIKE 'the' COLLATE utf8mb4_0900_ai_ci
+AND song RLIKE '^the' COLLATE utf8mb4_0900_ai_ci;
+```
+- [ ] 
+```sql
+SELECT * FROM band
+WHERE song RLIKE 'the' COLLATE latini_general_cs
+AND song RLIKE '^the' COLLATE latini_general_ci;
+```
+
+### Q. How does InnoDB choose deadlock victims in MySQL?
+- [ ] It chooses the transaction with the lowest transaction ID.
+- [x] It chooses the transaction with the fewest modified rows. ✅
+- [ ] It chooses the transaction with the least accumulated CPU time.
+- [ ] It chooses the transaction randomly.
+
+### Q. You must schedule an event to execute a stored routine, which will run every day at 6 AM starting from June 30, 2020.  
+Which will do this?
+- [ ] 
+```sql
+CREATE EVENT event_purge_logs
+ON SCHEDULE
+AT ('2020-06-30 06:00:00' + INTERVAL 1 DAY)
+DO
+  CALL purge_logs();
+```
+- [ ] 
+```sql
+CREATE EVENT event_purge_logs
+ON SCHEDULE
+AT ('2020-06-30 06:00:00' + INTERVAL 1 DAY) ON COMPLETION PRESERVE ENABLE
+DO
+  CALL purge_logs();
+```
+- [x] ✅
+```sql
+CREATE EVENT event_purge_logs
+ON SCHEDULE
+EVERY 1 DAY
+STARTS '2020-06-30 06:00:00' ON COMPLETION PRESERVE ENABLE
+DO
+  CALL purge_logs();
+```
+- [ ] 
+```sql
+CREATE EVENT event_purge_logs
+ON SCHEDULE
+EVERY 1 DAY
+STARTS '2020-06-30 06:00:00'
+DO
+  CALL purge_logs();
+```
+
+### Q. Examine the Test.php script which is numbered for clarity, and its output:
+```php
+1. <?PHP
+2. $link = mysqli_connect("localhost", "username", "password", "schema");
+3. $sql = "SELECT actor_id, first_name, last_name FROM actor";
+4. $result = $link->query($sql);
+5. echo $result->num_rows;
+6. ?>
+```
+Output:
+PHP Fatal error: Uncaught Error: Call to undefined function mysqli_connect() in Test.php:2  
+Which action will fix this error?
+- [x] Enable the mysqli extension in the php.ini file. ✅
+- [ ] Replace line 2 with `$link = mysqli_connect("localhost:3306", "username", "password", "schema");`
+- [ ] Install the PHP executable in the PATH used by the MySQL installation.
+- [ ] Replace line 2 with: `$link = mysql_xdevapi\getSession("mysqlx://username:password@localhost:3306","schema");`
+
+### Q. Which three statements are true about configuring/setting SQL mode?  
+A suite of applications has been migrated to a MySQL 8 production instance. These applications must use the default authentication plugin.  
+A legacy application yet to be migrated, does not support the default authentication plugin.  
+Examine this statement which executed successfully:
+```sql
+CREATE USER 'app'@localhost IDENTIFIED BY 'password';
+```
+Which would allow the legacy application to connect while enabling other applications to adhere to the requirements?
+- [ ] SET GLOBAL default_authentication_plugin=mysql_native_password;
+- [x] ALTER USER 'app'@localhost IDENTIFIED WITH mysql_native_password BY 'password'; ✅
+- [ ] SET PERSIST default_authentication_plugin=mysql_native_password;
+- [ ] CREATE USER 'legacyapp'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+- [ ] CREATE USER 'legacyapp'@'localhost' IDENTIFIED WITH caching_sha2_password BY 'password';
+
+### Q. Examine these lines of Python code:
+```python
+hire_start = datetime.date(1999, 1, 1)  
+hire_end = datetime.date(1999, 12, 31)  
+query = ("SELECT * FROM employees WHERE hired BETWEEN %s AND %s")
+```
+You must add a line of code to complete the code to return data to the variable d.  
+Which line will do this?
+- [ ] d = cursor.fetch(query % (hire_start, hire_end))
+- [ ] d = cursor.execute(query)
+- [ ] d = cursor.fetchall(query, (hire_start, hire_end))
+- [ ] d = cursor.fetchall(query)
+- [ ] d = cursor.fetch(query, (hire_start, hire_end))
+- [x] d = cursor.execute(query, (hire_start, hire_end)) ✅
+
+### Q. You are using buffered queries with PHP mysqli in a browser-based web application.  
+Which three are true?
+- [ ] Results are sent from the server to the browser for buffering.  
+- [x] Additional queries on the same session are blocked until the result set is released. ✅ 
+- [x] Results are sent to the calling PHP process for buffering. ✅
+- [x] Buffered queries are enabled by default. ✅
+- [ ] Buffered queries must be explicitly enabled using `MYSQLI_USE_RESULT`.  
+- [ ] Buffered queries should be used on large tables when the result size is unknown.  
+- [ ] Large results can have a negative impact on performance.
+
+### Q. Examine these statements which execute successfully:
+```sql
+CREATE TABLE `users` (
+  `user_id` int(11) NOT NULL AUTO_INCREMENT,
+  `loc_id` int(11) DEFAULT NULL,
+  `user_name` varchar(50) NOT NULL,
+  `user_static` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4968107 DEFAULT CHARSET=latin1;
+
+CREATE TABLE `locations` (
+  `loc_id` int(11) NOT NULL AUTO_INCREMENT,
+  `site_id` int(11) NOT NULL,
+  `loc_name` varchar(50) NOT NULL,
+  `loc_shared` int(11) NOT NULL DEFAULT '0',
+  `loc_mapping` char(36) NOT NULL,
+  PRIMARY KEY (`loc_id`)
+) ENGINE=MEMORY AUTO_INCREMENT=6835 DEFAULT CHARSET=latin1;
+
+SELECT 
+  loc.site_id,
+  loc.loc_shared,
+  usr.user_name
+FROM users usr
+INNER JOIN locations loc
+  ON usr.loc_id = loc.loc_id
+WHERE
+  loc.loc_mapping = 'daa9a225-8a4d-11ea-b3cf-00059a3c7a00';
+```
+Which two changes will improve this query performance?
+- [x] CREATE INDEX IX2 ON locations (loc_mapping) USING HASH; ✅
+- [ ] CREATE INDEX IX1 ON locations (loc_shared);
+- [ ] CREATE INDEX IX6 ON users (user_name);
+- [ ] CREATE INDEX IX4 ON locations (site_id, loc_shared);
+- [ ] CREATE INDEX IX7 ON users (user_name) USING HASH;
+- [ ] CREATE INDEX IX3 ON locations (loc_site_id);
+- [x] CREATE INDEX IX5 ON users (loc_id); ✅
+
+### Q. Examine these statements which execute successfully:
+```sql
+CREATE TABLE `users` (
+  `user_id` int NOT NULL AUTO_INCREMENT,
+  `loc_id` int DEFAULT NULL,
+  `user_static` int NOT NULL DEFAULT '0',
+  `user_unit` varchar(50) DEFAULT NULL,
+  `user_recorded` int NOT NULL DEFAULT '-1',
+  `user_superadmin` int NOT NULL DEFAULT '0',
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `locations` (
+  `loc_id` int NOT NULL AUTO_INCREMENT,
+  `site_id` int NOT NULL,
+  `loc_name` varchar(50) NOT NULL,
+  `loc_shared` int NOT NULL DEFAULT '0',
+  `loc_mapping` char(36) NOT NULL,
+  PRIMARY KEY (`loc_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+SELECT usr.user_id,
+       usr.user_unit,
+       loc.loc_shared
+FROM users usr
+INNER JOIN locations loc
+  ON usr.loc_id = loc.loc_id
+WHERE loc.loc_mapping = 'daa9a225-8a4d-11ea-b3cf-00059a3c7a001';
+```
+Which two options would create covering indexes?
+- [x] on users table user_unit and loc_id ✅
+- [ ] on users table user_id
+- [ ] on users table loc_id
+- [x] on locations table loc_mapping and loc_shared ✅
+- [ ] on locations table loc_mapping
+- [ ] on locations table loc_shared
+- [ ] on locations table loc_id and loc_shared
+
+### Q. Which two differences exist between the TIMESTAMP and DATETIME data types?
+- [ ] TIMESTAMP stores the interval between two dates.
+- [x] TIMESTAMP converts the value based on the session time zone. ✅
+- [ ] TIMESTAMP stores more decimal points in seconds.
+- [x] TIMESTAMP uses less storage space. ✅
+- [ ] TIMESTAMP has larger range of values.
+
+### Q. Examine these statements and output:
+```sql
+mysql> SET AUTOCOMMIT=off;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> UPDATE emp 
+-> SET salary=24000 
+-> WHERE id=101;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SET AUTOCOMMIT=on;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> INSERT INTO emp VALUES (102, 'John', 13000, 10);
+Query OK, 1 row affected (0.00 sec)
+```
+Now, examine this command:
+```sql
+mysql> ROLLBACK;
+```
+What is true about the execution and effect of the command?
+- [ ] It undoes the UPDATE command.
+- [ ] It returns an error because ROLLBACK is not allowed in AUTOCOMMIT mode.
+- [x] C. It undoes the INSERT command. ✅
+- [ ] It undoes both INSERT and UPDATE commands.
+- [ ] It has no effect.
+
+### Q. Examine the structure of the city table:
+```sql
++-------------+-----------+------+-----+---------+----------------+
+| Field       | Type      | Null | Key | Default | Extra          |
++-------------+-----------+------+-----+---------+----------------+
+| ID          | int       | NO   | PRI | NULL    | auto_increment |
+| Name        | char(35)  | NO   |     |         |                |
+| CountryCode | char(3)   | NO   |     |         |                |
+| District    | char(20)  | NO   |     |         |                |
+| Population  | int       | NO   |     | 0       |                |
++-------------+-----------+------+-----+---------+----------------+
+```
+Now examine this statement and output with a placeholder <keylength>:
+```sql
+EXPLAIN SELECT Name, Population FROM City WHERE Population=100231\G
+*************************** 1. row ***************************
+           id: 1
+  select_type: SIMPLE
+        table: city
+   partitions: NULL
+         type: ref
+possible_keys: pop_idx
+           key: pop_idx
+       key_len: <keylength>
+           ref: const
+          rows: 1
+      filtered: 100
+         Extra: NULL
+```
+What is the value of keylength?
+- [ ] 1
+- [ ] 2
+- [x] 5 ✅
+- [ ] 100231
+- [ ] 4
+- [ ] 6
+
+### Q. Which is a use characteristic of NoSQL JSON document store databases?
+- [ ] complex queries with JOINS
+- [ ] ACID transactions
+- [ ] well defined schemas
+- [x] ad-hoc data format ✅
+
+### Q. Examine the employee table structure:
+```sql
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| emp_id  | int          | NO   | PRI | NULL    |       |
+| empname | varchar(45)  | YES  |     | NULL    |       |
+| dept_id | int          | YES  | MUL | NULL    |       |
+| salary  | int          | YES  |     | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+```
+Which set of statements immediately returns empname for a given emp_id by using a parameterized PREPARE statement?
+- [ ] 
+```sql
+SET @num='SELECT empname FROM employee WHERE emp_id = 1';
+PREPARE prepStmt FROM @num;
+EXECUTE prepStmt;
+```
+- [ ] 
+```sql
+PREPARE prepStat FROM 'CREATE OR REPLACE VIEW ev AS SELECT empname FROM employee emp_id=?';
+SET @num=1;
+EXECUTE prepStmt USING @num;
+```
+- [ ] 
+```sql
+DELIMITER //
+CREATE PROCEDURE proc()
+BEGIN
+    DECLARE v_ename VARCHAR(45);
+    PREPARE prepStmt FROM 'SELECT empname INTO v_ename FROM employee WHERE emp_id = ?';
+    SET @v1=1;
+    EXECUTE prepStmt USING @v1;
+    SELECT v_ename;
+END//
+DELIMITER ;
+```
+- [x] ✅
+```sql
+PREPARE prepStmt FROM 'SELECT empname FROM employee WHERE emp_id?';
+SET @num=1;
+EXECUTE prepStmt USING @num;
+```
+
+### Q. You are using buffered queries with PHP mysqli in a browser-based web application.  
+Examine these statements which execute successfully:
+```sql
+CREATE TABLE t (id INT PRIMARY KEY);
+INSERT INTO t(id) VALUES (1);
+```
+Now, examine these statements executed successfully by two concurrent sessions:
+```sql
+Session 1> SET autocommit=0;
+Session 1> UPDATE t SET id=id+1;
+Session 2> SET transaction isolation="READ-UNCOMMITTED";
+Session 2> BEGIN;
+Session 2> UPDATE t SET id=id+1;
+Session 1> ROLLBACK;
+Session 2> COMMIT;
+```
+Which two are true?
+- [x] The current value of id is equal to 3. ✅
+- [ ] Session 1 does not start a transaction.
+- [ ] Session 2 increments the committed value of id by 1.
+- [ ] The current value of id is equal to 1.
+- [x] ROLLBACK releases the row lock taken by the UPDATE statement in Session 1. ✅
+
+### Q. Your session has sql_mode set to default.  
+Examine this statement which executes successfully:
+```sql
+CREATE TABLE students (
+  std_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  firstname varchar(255) NOT NULL,
+  lastname varchar(255) NOT NULL,
+  birthdate date NOT NULL,
+  reg_date datetime NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=10300;
+```
+Now examine this statement:
+```sql
+INSERT INTO students (std_id, firstname, lastname, birthdate, reg_date)
+VALUES ("NULL", "Mary", "O'Hagen", '1997-11-26', DATE());
+```
+You want to insert a row into students with these values:  
+A. std_id = 10301  
+B. firstname = Mary  
+C. lastname = O'Hagen  
+D. birthdate = November 26, 1997  
+E. reg_date = the current date  
+Which two changes are required to the INSERT statement so that it inserts the correct data?
+- [ ] Change "NULL" to NULL.
+- [ ] Change "O'Hagen" to 'O\'Hagen'.
+- [ ] Change DATE() to DAY().
+- [ ] Change DATE() to CURRENT_TIMESTAMP().
+- [x] Change "O'Hagen" to 'O\'Hagen'. ✅
+- [x] Change "NULL" to NULL. ✅
+
+### Q. Your session has sql_mode set to default.  
+Examine this statement which executes successfully:
+```sql
+CREATE TABLE `fshop` (`product` JSON DEFAULT NULL) ENGINE=InnoDB;
+```
+Now, examine a JSON value contained in the table:
+```json
+("name": "orange", "varieties": [
+  {"VarietyName":"clementine", "Origin": ["PA", "BU"]},
+  {"VarietyName": "tangerine", "Origin": ["CH", "JP"]}
+])
+```
+Which will cause documents to be indexed over the ‘name’ key?
+- [ ] ALTER TABLE fshop ADD COLUMN name VARCHAR(20), ADD KEY idx_name (name);
+- [ ] ALTER TABLE fshop ADD name VARCHAR(20) AS (JSON_UNQUOTE(product->'$.varieties.VarietyName')), ADD INDEX (name);
+- [ ] ALTER TABLE fshop ADD COLUMN name VARCHAR(20) AS (product->'$.varieties.VarietyName') VIRTUAL, ADD KEY idx_name (name);
+- [x] ALTER TABLE fshop ADD COLUMN name VARCHAR(20) AS (product->'$.name') VIRTUAL, ADD KEY idx_name (name); ✅
+- [ ] ALTER TABLE fshop ADD COLUMN name VARCHAR(100) AS (product->'$.varieties') VIRTUAL, ADD KEY idx_name (name);
+
+### Q. The Continent column in the country table contains no NULL values.  
+Examine this output:
+```sql
++---------------+-------------+-------------+
+| Continent     | pop         | num_country |
++---------------+-------------+-------------+
+| NULL          | 6078749450  | 239         |
+| Africa        | 784475000   | 58          |
+| Antarctica    | 0           | 5           |
+| Asia          | 3705025700  | 51          |
+| Europe        | 730074600   | 46          |
+| North America | 482993000   | 37          |
+| Oceania       | 30401150    | 28          |
+| South America | 345780000   | 14          |
++---------------+-------------+-------------+
+```
+Which statement will produce the output with the default sql_mode?
+- [ ] 
+```sql
+SELECT Continent,
+       SUM(Population) as pop,
+       COUNT(DISTINCT code) as num_country
+FROM country
+GROUP BY Continent
+ORDER BY Continent;
+```
+- [x] ✅
+```sql
+SELECT Continent,
+       SUM(Population) as pop,
+       COUNT(DISTINCT code) as num_country
+FROM country
+GROUP BY Continent WITH ROLLUP
+ORDER BY Continents;
+```
+- [ ] 
+```sql
+SELECT Continent,
+       Population as pop,
+       COUNT(DISTINCT code) as num_country
+FROM country
+GROUP BY Continent WITH ROLLUP
+ORDER BY Continent;
+```
+- [ ] 
+```sql
+SELECT Continent,
+       Population as pop,
+       COUNT(DISTINCT code) as num_country
+FROM country
+GROUP BY Continent
+ORDER BY Continent;
+```
+
+### Q. Your session has sql_mode set to default.  
+Which string function can be used to extract a portion of a non-numeric character string?
+- [ ] TRUNCATE()
+- [ ] INSTR()
+- [ ] EXTRACT()
+- [x] SUBSTR() ✅
+
+### Q. The authors table contains four rows. The books table contains eight rows.
+Examine this statement which executes successfully:
+```sql
+SELECT * FROM authors CROSS JOIN books;
+```
+How many rows will be returned?
+- [ ] 0
+- [ ] 4
+- [x] 32 ✅
+- [ ] 12
+- [ ] 8

@@ -1,5 +1,28 @@
 # Oracle Exam 1Z0-909: MySQL 8.0 Database Developer Dump
 
+#### Q. Which command displays timing information for a query?
+- [ ] EXPLAIN
+- [ ] EXPLAIN FORMAT=TREE
+- [x] EXPLAIN ANALYZE ✅
+- [ ] EXPLAIN FORMAT=JSON
+
+#### Q. You successfully executed a PDO-based query in a PHP application.  
+You must add a condition to accurately identify only NULLS.  
+Which two conditions will do this?
+- [x] if (is_null($row[$key]) ) ✅
+- [ ] if ($row[$key] === "")
+- [ ] if ($row[$key] == "")
+- [x] if ($row[$key] === NULL ) ✅
+- [ ] if (empty($row[$key] ) )
+
+#### Q. You must write a statement that can insert the last name `O'Hara` into a column of the customers table.
+Which two INSERT statements meet your requirement?
+- [x] INSERT INTO customers (last_name) VALUES ('0\'Hara'); ✅
+- [ ] INSERT INTO customers (last_name) VALUES ('0%27Hara');
+- [x] INSERT INTO customers (last_name) VALUES ('O''Hara'); ✅
+- [ ] INSERT INTO Customers (last_name) VALUES ("O"""Hara");
+- [ ] INSERT INTO customers (last_name) VALUES ("O""Hara");
+
 #### Q. Examine these statements which execute successfully:
 ```sql
 SET SQL MODE='';

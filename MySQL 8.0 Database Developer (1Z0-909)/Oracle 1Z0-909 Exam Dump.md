@@ -1,5 +1,67 @@
 # Oracle Exam 1Z0-909: MySQL 8.0 Database Developer Dump
 
+#### Q. Examine these statements which execute successfully:
+```sql
+SET SQL MODE='';
+CREATE TABLE tablel (i INT UNSIGNED);
+INSERT INTO tablel (i) VALUES (-1);
+```
+What value will be stored in tablel.i?
+- [ ] -1
+- [ ] 1
+- [x] 0 ✅
+- [ ] NULL
+
+#### Q. The meeting table stores meeting schedules with participants from five continents.  
+The participants' details are stored in another table.
+```sql
+CREATE TABLE meeting (
+id INT NOT NULL AUTO INCREMENT,
+name VARCHAR(100),
+start_time VARCHAR(20),
+duration VARCHAR(20),
+PRIMARY KEY (id)
+);
+```
+You need to adjust the start_time and duration columns for optimal storage.  
+What datatype changes would achieve this?
+- [x] start_time DATETIME, duration TIME  ✅
+- [ ] start_time TIMESTAMP, duration TIME
+- [ ] start_time DATETIME, duration DATETIME
+- [ ] start_time TIMESTAMP, duration TIMESTAMP
+- [ ] start_time TIME, duration TIME
+
+#### Q. You require a MySQL connector to ease migration of a PHP application from other Relational Database Management Systems with minimal code change.  
+Which connector will do this?
+- [ ] mysqli connector
+- [x] OPDO connector ✅
+- [ ] mysqli connector with XDev API
+- [ ] mysql connector
+
+#### Q. Which two are true of Stored Routines?
+- [ ] Cursors are only for updating records, not retrieving records.
+- [ ] Handlers must be declared before cursors.
+- [x] Cursors must be opened before being accessed. ✅
+- [ ] Handlers must be declared before conditions.
+- [ ] Prepared statements must be declared before conditions.
+- [x] Variables must be declared before cursors. ✅
+
+#### Q. Examine this statement which executes successfully:
+```
+SET @j = '["a", "b", "b", "c", "d", "e"]';
+```
+Now, examine this output:
+```json
+[1, "b", "b", "c", "d", "e"]
+```
+Which statement produces the output?
+- [ ] SELECT JSON_ARRAYAGG(@j, '$[1]', 1);
+- [ ] SELECT JSON_ARRAY_INSERT(@j, '$[0]', 1);
+- [x] SELECT JSON_SET(@j, '$[0]', 1); ✅
+- [ ] SELECT JSON_SET(@j, '$[1]', 1);
+- [ ] SELECT JSON_ARRAY_INSERT(@j, '$[1]', 1);
+- [ ] SELECT JSON_ARRAYAGG(@j, '$[0]', 1);
+
 #### Q. Your program which uses a MySQL connector receives this error: Client does not support authentication protocol requested by server. The account running the program uses caching_sha2_password.
 Which two resolve this conflict?
 - [x] Upgrade the connector to a version that supports caching_sha2_password. ✅
